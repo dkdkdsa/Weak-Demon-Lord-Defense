@@ -17,6 +17,9 @@ public class UnitDataController : MonoBehaviour
     [field: SerializeField] public float attackRange { get; protected set; }
     [field: SerializeField] public float skillRange { get; protected set; }
 
+    public float extraAttack { get; protected set; }
+    public float extraDef { get; protected set; }
+
 #if UNITY_EDITOR
 
     private void OnDrawGizmos()
