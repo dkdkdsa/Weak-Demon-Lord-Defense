@@ -5,15 +5,17 @@ using UnityEngine;
 public class UnitDataController : MonoBehaviour
 {
 
-    [Header("°ª")]
-    [SerializeField] private float attackPower;
-    [SerializeField] private float defenceValue;
-    [SerializeField] private float attackTime;
-    [SerializeField] private float skillCoolDown;
-    [SerializeField] private LayerMask layer;
-    [Header("AI")]
-    [SerializeField] private float attackRange;
-    [SerializeField] private float skillRange;
+    [field: Header("°ª")]
+    [field: SerializeField] public float attackPower { get; protected set; }
+    [field: SerializeField] public float defenceValue { get; protected set; }
+    [field: SerializeField] public float attackTime { get; protected set; }
+    [field: SerializeField] public float skillCoolDown { get; protected set; }
+    [field: SerializeField] public LayerMask layer { get; protected set; }
+
+    [field: Space]
+    [field: Header("AI")]
+    [field: SerializeField] public float attackRange { get; protected set; }
+    [field: SerializeField] public float skillRange { get; protected set; }
 
 #if UNITY_EDITOR
 
