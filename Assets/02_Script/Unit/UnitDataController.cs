@@ -15,7 +15,7 @@ public class UnitDataController : MonoBehaviour
     [field: SerializeField] public float maxHP { get; protected set; }
     [field: SerializeField] public SkillRoot skill { get; protected set; }
     [field: SerializeField] public LayerMask targetLayer { get; protected set; }
-    [field: SerializeField] public HPBar HPBarPrefab;
+    [field: SerializeField] public HPBar HPBarPrefab { get; protected set; }
 
     [field: Space]
     [field: Header("AI")]
