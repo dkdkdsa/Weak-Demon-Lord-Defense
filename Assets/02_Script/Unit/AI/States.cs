@@ -2,6 +2,7 @@ using FD.Dev;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static RangeTransition;
 
 public enum UnitState
 {
