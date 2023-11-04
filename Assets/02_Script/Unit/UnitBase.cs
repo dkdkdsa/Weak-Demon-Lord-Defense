@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(CapsuleCollider))]
+[RequireComponent(typeof(UnitDataController))]
+[RequireComponent(typeof(UnitController))]
 public class UnitBase : MonoBehaviour
 {
 

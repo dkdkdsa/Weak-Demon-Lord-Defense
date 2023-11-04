@@ -42,7 +42,7 @@ public class UnitDataController : MonoBehaviour
         if(currentHP <= 0)
         {
 
-            //Die
+            
 
         }
 

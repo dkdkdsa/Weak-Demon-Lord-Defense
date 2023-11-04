@@ -82,4 +82,18 @@ public class UnitAnimator : MonoBehaviour
 
     }
 
+    public void SetAttack()
+    {
+
+        animator.SetTrigger(ATTACK_HASH);
+
+    }
+
+    public void SetSkill()
+    {
+
+        animator.SetTrigger(SKILL_HSAH);
+
+    }
+
 }

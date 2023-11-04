@@ -19,11 +19,13 @@ public abstract class UnitStateRoot : StateRoot<UnitState>
 {
 
     protected UnitDataController dataController;
+    protected UnitAnimator animator;
 
     protected UnitStateRoot(Transform transform, StateController<UnitState> stateController) : base(transform, stateController)
     {
 
         dataController = transform.GetComponent<UnitDataController>();
+        animator = transform.Find("Visual").GetComponent<UnitAnimator>();
 
     }
 
@@ -59,12 +61,59 @@ public class AttackState : UnitStateRoot
 {
     public AttackState(Transform transform, StateController<UnitState> stateController) : base(transform, stateController)
     {
+
+        animator.OnAttack += DoAttack;
+        animator.OnAttackAnimeEnd += () => stateController.ChangeState(UnitState.Move);
+
+    }
+
+    private void DoAttack()
+    {
+
+        var hits = Physics.OverlapSphere(transform.position, dataController.range, dataController.targetLayer);
+
+        var target = hits[ChackMin(hits)].transform.GetComponent<UnitDataController>();
+
+        target.TakeDamage(dataController.attackPower + dataController.extraAttack);
+
+    }
+
+    private int ChackMin(Collider[] arr)
+    {
+
+        int min = 0;
+        float minDist = float.MaxValue;
+
+        if (arr.Length == 1)
+        {
+
+            return 0;
+
+        }
+
+        for (int i = 0; i < arr.Length; i++)
+        {
+
+            var dist = Vector3.Distance(transform.position, arr[i].transform.position);
+
+            if (dist < minDist)
+            {
+
+                minDist = dist;
+                min = i;
+
+            }
+
+        }
+
+        return min;
+
     }
 
     public override void Exit()
     {
 
-        //Doattack
+        animator.SetAttack();
 
         dataController.attackAble = false;
 
@@ -87,12 +136,57 @@ public class SkillState : UnitStateRoot
 
     public SkillState(Transform transform, StateController<UnitState> stateController) : base(transform, stateController)
     {
+
+        animator.OnSkill += DoSkill;
+        animator.OnSkillAnimeEnd += () => stateController.ChangeState(UnitState.Move);
+
+    }
+
+    private void DoSkill()
+    {
+
+        var hits = Physics.OverlapSphere(transform.position, dataController.range, dataController.targetLayer);
+
+        dataController.skill.DoSkill(hits[ChackMin(hits)].transform, transform, dataController.targetLayer);
+
+    }
+
+    private int ChackMin(Collider[] arr)
+    {
+
+        int min = 0;
+        float minDist = float.MaxValue;
+
+        if (arr.Length == 1)
+        {
+
+            return 0;
+
+        }
+
+        for (int i = 0; i < arr.Length; i++)
+        {
+
+            var dist = Vector3.Distance(transform.position, arr[i].transform.position);
+
+            if (dist < minDist)
+            {
+
+                minDist = dist;
+                min = i;
+
+            }
+
+        }
+
+        return min;
+
     }
 
     public override void Exit()
     {
 
-        //DoSkill
+        animator.SetSkill();
 
         dataController.skillAble = false;
 
@@ -111,7 +205,6 @@ public class SkillState : UnitStateRoot
 
 public class MoveState : UnitStateRoot
 {
-
 
     public MoveState(Transform transform, StateController<UnitState> stateController) : base(transform, stateController)
     {
@@ -180,6 +273,8 @@ public class MoveState : UnitStateRoot
 
         agent.isStopped = false;
 
+        animator.SetIsMove(true);
+
     }
 
     public override void Exit()
@@ -187,6 +282,8 @@ public class MoveState : UnitStateRoot
 
         agent.Move(transform.position);
         agent.isStopped = true;
+
+        animator.SetIsMove(false);
 
     }
 
@@ -200,7 +297,12 @@ public class MoveState : UnitStateRoot
 
         }
 
-        if (target == null) return;
+        if (target == null)
+        {
+
+            stateController.ChangeState(UnitState.Idle);
+
+        }
 
         agent.Move(target.position);
 
@@ -210,6 +312,7 @@ public class MoveState : UnitStateRoot
 
 public class DieState : UnitStateRoot
 {
+
     public DieState(Transform transform, StateController<UnitState> stateController) : base(transform, stateController)
     {
     }
