@@ -17,9 +17,24 @@ public abstract class UnitStateRoot : StateRoot<UnitState>
     {
     }
 
-    public abstract override void Update()
-
+    public abstract override void Update();
 
 }
 
-public class Attakc
+public class IdleState : UnitStateRoot
+{
+    public IdleState(Transform transform, StateController<UnitState> stateController) : base(transform, stateController)
+    {
+
+
+
+    }
+
+    public override void Update()
+    {
+
+        
+
+    }
+
+}
