@@ -6,6 +6,7 @@ public class UnitDataController : MonoBehaviour
 {
 
     [field: Header("°ª")]
+    [field: SerializeField] public float moveSpeed { get; protected set; }
     [field: SerializeField] public float attackPower { get; protected set; }
     [field: SerializeField] public float defenceValue { get; protected set; }
     [field: SerializeField] public float attackTime { get; protected set; }
