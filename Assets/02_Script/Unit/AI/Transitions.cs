@@ -18,7 +18,12 @@ public class RangeTransition : TransitionRoot
 
     public float range;
 
+    public void SetLayer(LayerMask layer)
+    {
 
+        targetLayer = layer;
+
+    }
     public override bool ChackTransition()
     {
 
@@ -27,8 +32,7 @@ public class RangeTransition : TransitionRoot
         return hits.Length > 0;
 
     }
-
-
+}
 
 public class ReverseRangeTransition : RangeTransition
 {
@@ -70,15 +74,17 @@ public class AttackTransition : RangeTransition
 public class SkillTransition : RangeTransition
 {
 
-    private UnitDataController dataController;
-
     public SkillTransition(float range, Transform transform) : base(range, transform)
     {
 
         dataController = transform.GetComponent<UnitDataController>();
-            targetLayer = dataController.targetLayer;
+        targetLayer = dataController.targetLayer;
 
-        }
+    }
+
+    private UnitDataController dataController;
+
+
 
     public override bool ChackTransition()
     {

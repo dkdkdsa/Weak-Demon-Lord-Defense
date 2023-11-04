@@ -38,6 +38,8 @@ public class IdleState : UnitStateRoot
 
         var attackRangeTrans = new AttackTransition(dataController.attackAbleRange, transform);
         var skillRangeTrans = new SkillTransition(dataController.attackAbleRange, transform);
+        var moveTrans = new RangeTransition(dataController.range, transform);
+        moveTrans.SetLayer(dataController.targetLayer);
 
         transitions.Add(UnitState.Attack, new HashSet<TransitionRoot> { attackRangeTrans });
         transitions.Add(UnitState.Skill, new HashSet<TransitionRoot> { skillRangeTrans });
