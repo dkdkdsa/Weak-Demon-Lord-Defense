@@ -29,15 +29,25 @@ public abstract class StateRoot<T> where T : System.Enum
         foreach(var item in transitions)
         {
 
+            bool change = true;
+
             foreach(var trans in item.Value)
             {
 
-                if (trans.ChackTransition())
+                if (!trans.ChackTransition())
                 {
 
-                    stateController.ChangeState(item.Key);
+                    change = false;
+                    break;
 
                 }
+
+            }
+
+            if (change)
+            {
+
+                stateController.ChangeState(item.Key);
 
             }
 

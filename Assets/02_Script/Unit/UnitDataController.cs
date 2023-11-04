@@ -23,6 +23,8 @@ public class UnitDataController : MonoBehaviour
 
     public float extraAttack { get; protected set; }
     public float extraDef { get; protected set; }
+    public bool attackAble { get; protected set; } = true;
+    public bool skillAble { get; protected set; } = true;
 
     private void Awake()
     {
