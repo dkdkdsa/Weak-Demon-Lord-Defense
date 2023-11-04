@@ -12,7 +12,7 @@ public class UnitDataController : MonoBehaviour
     [field: SerializeField] public float skillCoolDown { get; protected set; }
     [field: SerializeField] public float maxHP { get; protected set; }
     [field: SerializeField] public SkillRoot skill { get; protected set; }
-    [field: SerializeField] public LayerMask layer { get; protected set; }
+    [field: SerializeField] public LayerMask targetLayer { get; protected set; }
 
     [field: Space]
     [field: Header("AI")]
@@ -23,8 +23,8 @@ public class UnitDataController : MonoBehaviour
 
     public float extraAttack { get; protected set; }
     public float extraDef { get; protected set; }
-    public bool attackAble { get; protected set; } = true;
-    public bool skillAble { get; protected set; } = true;
+    public bool attackAble { get; set; } = true;
+    public bool skillAble { get; set; } = true;
 
     private void Awake()
     {

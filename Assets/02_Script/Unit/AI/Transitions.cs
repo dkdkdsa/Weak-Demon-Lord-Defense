@@ -13,26 +13,22 @@ public class RangeTransition : TransitionRoot
 
     }
 
-    private Transform transfrom;
+    protected Transform transfrom;
+    protected LayerMask targetLayer;
 
     public float range;
-    public Transform target;
+
 
     public override bool ChackTransition()
     {
 
-        return Vector3.Distance(transfrom.position, target.position) < range;
+        var hits = Physics.OverlapSphere(transfrom.position, range, targetLayer);
+
+        return hits.Length > 0;
 
     }
 
-    public void SetTarget(Transform target)
-    {
 
-        this.target = target;
-
-    }
-
-}
 
 public class ReverseRangeTransition : RangeTransition
 {
@@ -58,6 +54,7 @@ public class AttackTransition : RangeTransition
     {
 
         dataController = transform.GetComponent<UnitDataController>();
+        targetLayer = dataController.targetLayer;
 
     }
 
@@ -79,8 +76,9 @@ public class SkillTransition : RangeTransition
     {
 
         dataController = transform.GetComponent<UnitDataController>();
+            targetLayer = dataController.targetLayer;
 
-    }
+        }
 
     public override bool ChackTransition()
     {

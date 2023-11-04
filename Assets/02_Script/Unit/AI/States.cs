@@ -1,3 +1,4 @@
+using FD.Dev;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,7 +35,7 @@ public class IdleState : UnitStateRoot
     {
 
         var attackRangeTrans = new AttackTransition(dataController.attackRange, transform);
-        var skillRangeTrans = new RangeTransition(dataController.skillRange, transform);
+        var skillRangeTrans = new SkillTransition(dataController.skillRange, transform);
 
         transitions.Add(UnitState.Attack, new HashSet<TransitionRoot> { attackRangeTrans });
         transitions.Add(UnitState.Skill, new HashSet<TransitionRoot> { skillRangeTrans });
@@ -52,6 +53,21 @@ public class IdleState : UnitStateRoot
 
 public class AttackState : UnitStateRoot
 {
+    public AttackState(Transform transform, StateController<UnitState> stateController) : base(transform, stateController)
+    {
+    }
+
+    public override void Exit()
+    {
+
+        //Doattack
+
+        dataController.attackAble = false;
+
+        FAED.InvokeDelay(() => dataController.attackAble = true, dataController.attackTime);
+
+    }
+
     public override void Update()
     {
 
