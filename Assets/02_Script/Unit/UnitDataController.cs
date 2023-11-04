@@ -16,8 +16,8 @@ public class UnitDataController : MonoBehaviour
 
     [field: Space]
     [field: Header("AI")]
-    [field: SerializeField] public float attackRange { get; protected set; }
-    [field: SerializeField] public float skillRange { get; protected set; }
+    [field: SerializeField] public float range { get; protected set; }
+    [field: SerializeField] public float attackAbleRange { get; protected set; }
 
     protected float currentHP;
 
@@ -55,10 +55,10 @@ public class UnitDataController : MonoBehaviour
         var old = Gizmos.color;
 
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere(transform.position, range);
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, skillRange);
+        Gizmos.DrawWireSphere(transform.position, attackAbleRange);
 
         Gizmos.color = old;
 

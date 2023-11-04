@@ -8,6 +8,7 @@ public enum UnitState
 {
 
     Idle,
+    Move,
     Attack,
     Skill,
     Die
@@ -35,8 +36,8 @@ public class IdleState : UnitStateRoot
     public IdleState(Transform transform, StateController<UnitState> stateController) : base(transform, stateController)
     {
 
-        var attackRangeTrans = new AttackTransition(dataController.attackRange, transform);
-        var skillRangeTrans = new SkillTransition(dataController.skillRange, transform);
+        var attackRangeTrans = new AttackTransition(dataController.attackAbleRange, transform);
+        var skillRangeTrans = new SkillTransition(dataController.attackAbleRange, transform);
 
         transitions.Add(UnitState.Attack, new HashSet<TransitionRoot> { attackRangeTrans });
         transitions.Add(UnitState.Skill, new HashSet<TransitionRoot> { skillRangeTrans });
