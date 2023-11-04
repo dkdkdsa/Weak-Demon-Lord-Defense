@@ -1,0 +1,44 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class HPBar : MonoBehaviour
+{
+
+    [SerializeField] private Transform barRootTrm;
+
+    private UnitDataController dataController;
+
+    private void Awake()
+    {
+        
+        dataController = transform.root.GetComponent<UnitDataController>();
+        dataController.OnValueChanged += HandleValueChanged;
+
+    }
+
+    private void OnDestroy()
+    {
+        
+        if(dataController != null)
+        {
+
+            dataController.OnValueChanged -= HandleValueChanged;
+
+        }
+
+    }
+
+    private void HandleValueChanged()
+    {
+
+        float value = dataController.maxHP / dataController.currentHP;
+
+        if(value < 0 ) value = 0;
+
+        barRootTrm.localScale.Set(value, 1f, 1);
+
+    }
+
+}

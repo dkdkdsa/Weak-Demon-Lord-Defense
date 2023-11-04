@@ -25,7 +25,7 @@ public abstract class UnitStateRoot : StateRoot<UnitState>
     {
 
         dataController = transform.GetComponent<UnitDataController>();
-        animator = transform.Find("Visual").GetComponent<UnitAnimator>();
+        animator = transform.Find("Visual/UnitRoot").GetComponent<UnitAnimator>();
 
     }
 
@@ -45,6 +45,7 @@ public class IdleState : UnitStateRoot
 
         transitions.Add(UnitState.Attack, new HashSet<TransitionRoot> { attackRangeTrans });
         transitions.Add(UnitState.Skill, new HashSet<TransitionRoot> { skillRangeTrans });
+        transitions.Add(UnitState.Move, new HashSet<TransitionRoot> {  moveTrans });
 
     }
 
@@ -72,7 +73,17 @@ public class AttackState : UnitStateRoot
 
         var hits = Physics.OverlapSphere(transform.position, dataController.range, dataController.targetLayer);
 
+        if (hits.Length <= 0) return;
+
         var target = hits[ChackMin(hits)].transform.GetComponent<UnitDataController>();
+
+        if(target == null)
+        {
+
+            Debug.Log("타겟에 데이터컨트롤러가 없다");
+            return;
+
+        }
 
         target.TakeDamage(dataController.attackPower + dataController.extraAttack);
 
@@ -110,7 +121,7 @@ public class AttackState : UnitStateRoot
 
     }
 
-    public override void Exit()
+    public override void Enter()
     {
 
         animator.SetAttack();
@@ -142,10 +153,14 @@ public class SkillState : UnitStateRoot
 
     }
 
+
+
     private void DoSkill()
     {
 
         var hits = Physics.OverlapSphere(transform.position, dataController.range, dataController.targetLayer);
+
+        if (hits.Length <= 0) return;
 
         dataController.skill.DoSkill(hits[ChackMin(hits)].transform, transform, dataController.targetLayer);
 
@@ -183,7 +198,7 @@ public class SkillState : UnitStateRoot
 
     }
 
-    public override void Exit()
+    public override void Enter()
     {
 
         animator.SetSkill();
@@ -216,15 +231,21 @@ public class MoveState : UnitStateRoot
 
         transitions.Add(UnitState.Attack, new HashSet<TransitionRoot> { attackRangeTrans });
         transitions.Add(UnitState.Skill, new HashSet<TransitionRoot> { skillRangeTrans });
+        transitions.Add(UnitState.Idle, new HashSet<TransitionRoot> { idleTrans });
 
         agent = transform.GetComponent<NavMeshAgent>();
         agent.speed = dataController.moveSpeed;
         agent.angularSpeed = 0;
 
+        visual = transform.Find("Visual");
+
+        originScale = visual.localScale.x;
+
     }
 
     private NavMeshAgent agent;
-    private Transform target;
+    private Transform target, visual;
+    private float originScale;
 
     private void SetTarget()
     {
@@ -280,7 +301,7 @@ public class MoveState : UnitStateRoot
     public override void Exit()
     {
 
-        agent.Move(transform.position);
+        agent.SetDestination(transform.position);
         agent.isStopped = true;
 
         animator.SetIsMove(false);
@@ -304,7 +325,22 @@ public class MoveState : UnitStateRoot
 
         }
 
-        agent.Move(target.position);
+        if(Vector3.Distance(target.position, transform.position) <= dataController.attackAbleRange)
+        {
+
+            animator.SetIsMove(false);
+            agent.SetDestination(transform.position);
+
+        }
+        else
+        {
+
+            animator.SetIsMove(true);
+            agent.SetDestination(target.position);
+
+        }
+
+        visual.localScale = transform.position.x > target.position.x ? Vector3.one * originScale : new Vector3(-1, 1, 1) * originScale;
 
     }
 

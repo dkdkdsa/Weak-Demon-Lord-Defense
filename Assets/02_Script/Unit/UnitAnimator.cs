@@ -10,6 +10,8 @@ public class UnitAnimator : MonoBehaviour
     private readonly int SKILL_HSAH = Animator.StringToHash("Skill");
     private readonly int ISMOVE_HASH = Animator.StringToHash("IsMove");
     private readonly int DIE_HASH = Animator.StringToHash("Die");
+    private readonly int ATTACKEND_HASH = Animator.StringToHash("AttackEnd");
+    private readonly int SKILLEND_HASH = Animator.StringToHash("SkillEnd");
 
     private Animator animator;
     private bool isDie;
@@ -31,6 +33,7 @@ public class UnitAnimator : MonoBehaviour
     public void OnAttackAnimeEndInvoke()
     {
 
+        animator.SetTrigger(ATTACKEND_HASH);
         OnAttackAnimeEnd?.Invoke();
 
     }
@@ -38,6 +41,7 @@ public class UnitAnimator : MonoBehaviour
     public void OnSkillAnimeEndInvoke()
     {
 
+        animator.SetTrigger(SKILLEND_HASH);
         OnSkillAnimeEnd?.Invoke();
 
     }

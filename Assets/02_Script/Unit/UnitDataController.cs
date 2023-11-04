@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,23 +15,26 @@ public class UnitDataController : MonoBehaviour
     [field: SerializeField] public float maxHP { get; protected set; }
     [field: SerializeField] public SkillRoot skill { get; protected set; }
     [field: SerializeField] public LayerMask targetLayer { get; protected set; }
+    [field: SerializeField] public HPBar HPBarPrefab;
 
     [field: Space]
     [field: Header("AI")]
     [field: SerializeField] public float range { get; protected set; }
     [field: SerializeField] public float attackAbleRange { get; protected set; }
 
-    protected float currentHP;
+    public float currentHP { get; protected set; }
 
+    public event Action OnValueChanged;
     public float extraAttack { get; protected set; }
     public float extraDef { get; protected set; }
     public bool attackAble { get; set; } = true;
     public bool skillAble { get; set; } = true;
 
-    private void Awake()
+    protected virtual void Awake()
     {
 
         currentHP = maxHP;
+        skill = Instantiate(skill);
 
     }
 

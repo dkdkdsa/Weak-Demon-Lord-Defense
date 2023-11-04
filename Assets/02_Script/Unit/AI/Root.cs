@@ -48,6 +48,7 @@ public abstract class StateRoot<T> where T : System.Enum
             {
 
                 stateController.ChangeState(item.Key);
+                break;
 
             }
 
