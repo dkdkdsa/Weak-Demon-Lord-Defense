@@ -319,11 +319,12 @@ MonoBehaviour:
   <defenceValue>k__BackingField: 3
   <attackTime>k__BackingField: 3
   <skillCoolDown>k__BackingField: 3
-  <maxHP>k__BackingField: 3
+  <maxHP>k__BackingField: 100
   <skill>k__BackingField: {fileID: 11400000, guid: 075d41d04248c814c9d3719a9f318135, type: 2}
   <targetLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
+  <hPBarPrefab>k__BackingField: {fileID: 6521066083289951620, guid: 3037fa8fd8a12d64c8e51d66259b65e1, type: 3}
   <range>k__BackingField: 5
   <attackAbleRange>k__BackingField: 3
 --- !u!136 &557223198

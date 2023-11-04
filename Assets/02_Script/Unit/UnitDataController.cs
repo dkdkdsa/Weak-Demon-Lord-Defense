@@ -15,18 +15,23 @@ public class UnitDataController : MonoBehaviour
     [field: SerializeField] public float maxHP { get; protected set; }
     [field: SerializeField] public SkillRoot skill { get; protected set; }
     [field: SerializeField] public LayerMask targetLayer { get; protected set; }
-    [field: SerializeField] public HPBar HPBarPrefab { get; protected set; }
+    [field: SerializeField] public HPBar hPBarPrefab { get; protected set; }
 
     [field: Space]
     [field: Header("AI")]
     [field: SerializeField] public float range { get; protected set; }
     [field: SerializeField] public float attackAbleRange { get; protected set; }
 
-    public float currentHP { get; protected set; }
+    protected UnitAnimator animator;
+    protected HPBar hpBar;
+
 
     public event Action OnValueChanged;
+
+    public float currentHP { get; protected set; }
     public float extraAttack { get; protected set; }
     public float extraDef { get; protected set; }
+    public float extraHP { get; protected set; }
     public bool attackAble { get; set; } = true;
     public bool skillAble { get; set; } = true;
 
@@ -34,19 +39,46 @@ public class UnitDataController : MonoBehaviour
     {
 
         currentHP = maxHP;
+        animator = transform.Find("Visual/UnitRoot").GetComponent<UnitAnimator>();
         skill = Instantiate(skill);
+        hpBar = Instantiate(hPBarPrefab, transform.position + new Vector3(0, 2, 0.3f), Quaternion.Euler(45, 0, 0), transform);
 
     }
 
     public virtual void TakeDamage(float damage)
     {
 
+        damage -= defenceValue + extraDef;
+
+        damage = Mathf.Clamp(damage, 0f, maxHP + extraHP);
+
+        if (damage == 0)
+        {
+
+            //DoSom
+
+        }
+
         currentHP -= damage;
 
         if(currentHP <= 0)
         {
 
-            
+            animator.SetDie();
+
+        }
+
+        OnValueChanged?.Invoke();
+
+    }
+
+    private void Update()
+    {
+        
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+
+            TakeDamage(10);
 
         }
 

@@ -10,7 +10,7 @@ public class HPBar : MonoBehaviour
 
     private UnitDataController dataController;
 
-    private void Awake()
+    private void Start()
     {
         
         dataController = transform.root.GetComponent<UnitDataController>();
@@ -33,11 +33,13 @@ public class HPBar : MonoBehaviour
     private void HandleValueChanged()
     {
 
-        float value = dataController.maxHP / dataController.currentHP;
+        Debug.Log(123);
 
-        if(value < 0 ) value = 0;
+        float value = dataController.currentHP / dataController.maxHP;
 
-        barRootTrm.localScale.Set(value, 1f, 1);
+        if (value < 0 ) value = 0;
+
+        barRootTrm.localScale = new Vector3(value, 1, 1);
 
     }
 
