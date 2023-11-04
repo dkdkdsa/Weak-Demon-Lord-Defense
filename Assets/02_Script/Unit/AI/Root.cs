@@ -2,15 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IState
+
+public abstract class StateRoot<T> where T : System.Enum
 {
 
-    public void Update();
+    public StateRoot(Transform transform, StateController<T> stateController)
+    {
+
+        this.transform = transform;
+        this.stateController = stateController;
+
+    }
+
+    protected Dictionary<T, HashSet<TransitionRoot>> transitions = new();
+    protected Transform transform;
+    protected StateController<T> stateController;
+
+    public abstract void Update();
+
+    public virtual void Enter() { }
+    public virtual void Exit() { }
+
+    public void ChackTransition()
+    {
+
+        foreach(var item in transitions)
+        {
+
+            foreach(var trans in item.Value)
+            {
+
+                if (trans.ChackTransition())
+                {
+
+                    stateController.ChangeState(item.Key);
+
+                }
+
+            }
+
+        }
+
+    }
 
 }
 
-public interface ITransition{
+public abstract class TransitionRoot
+{
 
-    public void Chack();
+    public abstract bool ChackTransition();
 
 }
