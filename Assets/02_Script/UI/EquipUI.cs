@@ -31,6 +31,8 @@ public class EquipUI : MonoBehaviour
 
         dataController = unitDataController;
 
+        if (dataController == null) return;
+
         for(int i = 0; i < 4; i++)
         {
 

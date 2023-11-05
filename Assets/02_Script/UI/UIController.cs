@@ -8,7 +8,7 @@ using UnityEngine;
 public class UIController : MonoBehaviour
 {
 
-    [SerializeField] private Transform inventory, unitUpgrade, itemUpgrade, equip, hpPanel;
+    [SerializeField] private Transform inventory, unitUpgrade, itemUpgrade, equip, hpPanel, deckPanel;
 
     private CinemachineVirtualCamera cvcam;
     private InventoryViewer inventoryViewer;
@@ -33,6 +33,9 @@ public class UIController : MonoBehaviour
     {
 
         SetHpPanel(true);
+        SetDeckPanel(true);
+        WaveManager.instance.OnWaveStartEvent += HandleWaveStart;
+        WaveManager.instance.OnWaveEndEvent += HandleWaveEnd;
 
     }
 
@@ -42,13 +45,13 @@ public class UIController : MonoBehaviour
         if (open)
         {
 
-            inventory.DOMoveY(0, 0.3f).SetEase(Ease.OutQuad);
+            inventory.DOLocalMoveY(0, 0.3f).SetEase(Ease.OutQuad);
 
         }
         else
         {
 
-            inventory.DOMoveY(1100, 0.3f).SetEase(Ease.OutQuad);
+            inventory.DOLocalMoveY(1100, 0.3f).SetEase(Ease.OutQuad);
 
         }
 
@@ -60,13 +63,13 @@ public class UIController : MonoBehaviour
         if (open)
         {
 
-            unitUpgrade.DOMoveY(0, 0.3f).SetEase(Ease.OutQuad);
+            unitUpgrade.DOLocalMoveY(0, 0.3f).SetEase(Ease.OutQuad);
 
         }
         else
         {
 
-            unitUpgrade.DOMoveY(1100, 0.3f).SetEase(Ease.OutQuad);
+            unitUpgrade.DOLocalMoveY(1100, 0.3f).SetEase(Ease.OutQuad);
 
         }
 
@@ -78,13 +81,13 @@ public class UIController : MonoBehaviour
         if (open)
         {
 
-            itemUpgrade.DOMoveY(0, 0.3f).SetEase(Ease.OutQuad);
+            itemUpgrade.DOLocalMoveY(0, 0.3f).SetEase(Ease.OutQuad);
 
         }
         else
         {
 
-            itemUpgrade.DOMoveY(1100, 0.3f).SetEase(Ease.OutQuad);
+            itemUpgrade.DOLocalMoveY(1100, 0.3f).SetEase(Ease.OutQuad);
 
         }
 
@@ -96,13 +99,13 @@ public class UIController : MonoBehaviour
         if (open)
         {
 
-            equip.DOMoveY(0, 0.3f).SetEase(Ease.OutQuad);
+            equip.DOLocalMoveY(0, 0.3f).SetEase(Ease.OutQuad);
 
         }
         else
         {
 
-            equip.DOMoveY(1100, 0.3f).SetEase(Ease.OutQuad);
+            equip.DOLocalMoveY(1100, 0.3f).SetEase(Ease.OutQuad);
 
         }
 
@@ -114,15 +117,48 @@ public class UIController : MonoBehaviour
         if (open)
         {
 
-            hpPanel.DOMoveY(0, 0.3f).SetEase(Ease.OutQuad);
+            hpPanel.DOLocalMoveY(0, 0.3f).SetEase(Ease.OutQuad);
 
         }
         else
         {
 
-            hpPanel.DOMoveY(1100, 0.3f).SetEase(Ease.OutQuad);
+            hpPanel.DOLocalMoveY(1100, 0.3f).SetEase(Ease.OutQuad);
+                
+        }
+
+    }
+    private void SetDeckPanel(bool open)
+    {
+
+        if (open)
+        {
+
+            deckPanel.DOLocalMoveY(0, 0.3f).SetEase(Ease.OutQuad);
 
         }
+        else
+        {
+
+            deckPanel.DOLocalMoveY(-1100, 0.3f).SetEase(Ease.OutQuad);
+
+        }
+
+    }
+
+    private void HandleWaveStart()
+    {
+
+        SetHpPanel(false);
+        SetDeckPanel(false);
+
+    }
+
+    private void HandleWaveEnd()
+    {
+
+        SetHpPanel(true);
+        SetDeckPanel(true);
 
     }
 
@@ -168,6 +204,11 @@ public class UIController : MonoBehaviour
         unitUpgradeUI.SetController(control);
         inventoryViewer.SetEquip(equipUI);
 
+        SetHpPanel(false);
+        SetInventroyPanel(true);
+        SetUnitUgradePanel(true);
+        SetEquipPanel(true);
+
         StartCoroutine(SetCamera(60, 15));
 
     }
@@ -183,6 +224,12 @@ public class UIController : MonoBehaviour
         equipUI.SetControl(null);
         inventoryViewer.SetEquip(null);
         unitUpgradeUI.ReleaseControl();
+
+        SetHpPanel(true);
+        SetInventroyPanel(false);
+        SetUnitUgradePanel(false);
+        SetEquipPanel(false);
+
         StartCoroutine(SetCamera(15, 60));
 
     }
