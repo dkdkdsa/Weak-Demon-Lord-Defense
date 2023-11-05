@@ -322,6 +322,7 @@ public class MoveState : UnitStateRoot
         {
 
             stateController.ChangeState(UnitState.Idle);
+            return;
 
         }
 

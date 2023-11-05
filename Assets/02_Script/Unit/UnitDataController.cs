@@ -24,6 +24,7 @@ public class UnitDataController : MonoBehaviour
 
     protected UnitAnimator animator;
     protected HPBar hpBar;
+    protected Dictionary<ItemType, ItemData?> itemContainer = new();
 
 
     public event Action OnValueChanged;
@@ -81,6 +82,54 @@ public class UnitDataController : MonoBehaviour
             TakeDamage(10);
 
         }
+
+    }
+
+    private void SettingValue(ItemType type, bool remove = false)
+    {
+
+        var item = itemContainer[type];
+
+        if (!remove)
+        {
+
+            extraAttack += item.Value.attack;
+            extraDef += item.Value.defense;
+            extraHP += item.Value.hp;
+
+        }
+        else
+        {
+
+            extraAttack -= item.Value.attack;
+            extraDef -= item.Value.defense;
+            extraHP -= item.Value.hp;
+
+        }
+
+    }
+
+    public bool EquipItem(ItemData item)
+    {
+
+        if (itemContainer.ContainsKey(item.type)) return false;
+
+        itemContainer.Add(item.type, item);
+        SettingValue(item.type);
+
+        return true;
+
+    }
+
+    public bool ReleaseItem(ItemType type)
+    {
+
+        if (!itemContainer.ContainsKey(type)) return false;
+
+        SettingValue(type, true);
+        itemContainer.Remove(type);
+
+        return true;
 
     }
 

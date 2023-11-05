@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 557223197}
   - component: {fileID: 557223196}
   - component: {fileID: 557223195}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TestUnit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ Transform:
   m_GameObject: {fileID: 557223193}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.09}
+  m_LocalPosition: {x: -1.42, y: 0, z: 0.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -315,9 +315,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <moveSpeed>k__BackingField: 3
-  <attackPower>k__BackingField: 3
+  <attackPower>k__BackingField: 30
   <defenceValue>k__BackingField: 3
-  <attackTime>k__BackingField: 3
+  <attackTime>k__BackingField: 5
   <skillCoolDown>k__BackingField: 3
   <maxHP>k__BackingField: 100
   <skill>k__BackingField: {fileID: 11400000, guid: 075d41d04248c814c9d3719a9f318135, type: 2}
@@ -471,7 +471,7 @@ Transform:
   m_GameObject: {fileID: 1046481157}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.82, z: -7.86}
+  m_LocalPosition: {x: 0.02, y: 0.82, z: -7.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

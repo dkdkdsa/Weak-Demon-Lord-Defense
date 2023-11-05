@@ -74,12 +74,16 @@ public class UnitAnimator : MonoBehaviour
     public void SetIsMove(bool isMove)
     {
 
+        if (isDie) return;
+
         animator.SetBool(ISMOVE_HASH, isMove);
 
     }
 
     public void SetDie()
     {
+
+        if (isDie) return;
 
         isDie = true;
         animator.SetTrigger(DIE_HASH);
@@ -89,6 +93,9 @@ public class UnitAnimator : MonoBehaviour
     public void SetAttack()
     {
 
+        if (isDie) return;
+
+        animator.ResetTrigger(ATTACKEND_HASH);
         animator.SetTrigger(ATTACK_HASH);
 
     }
@@ -96,6 +103,9 @@ public class UnitAnimator : MonoBehaviour
     public void SetSkill()
     {
 
+        if (isDie) return;
+
+        animator.ResetTrigger(SKILLEND_HASH);
         animator.SetTrigger(SKILL_HSAH);
 
     }

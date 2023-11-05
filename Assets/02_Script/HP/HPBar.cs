@@ -33,7 +33,6 @@ public class HPBar : MonoBehaviour
     private void HandleValueChanged()
     {
 
-        Debug.Log(123);
 
         float value = dataController.currentHP / dataController.maxHP;
 
