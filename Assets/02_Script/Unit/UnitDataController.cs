@@ -115,7 +115,29 @@ public class UnitDataController : MonoBehaviour
 
     }
 
-    private void SettingItemSpriet(Sprite sprite)
+    private void SettingItemSpriet(Sprite sprite, ItemType type)
+    {
+
+        switch (type)
+        {
+
+            case ItemType.Body:
+                body.sprite = sprite;
+                break;
+            case ItemType.Head:
+                head.sprite = sprite;
+                break;
+            case ItemType.Pants:
+                pants1.sprite = sprite;
+                pants2.sprite = sprite;
+                break;
+            case ItemType.Weapon:
+                weapon.sprite = sprite;
+                break;
+
+        }
+
+    }
 
     public bool EquipItem(ItemData item)
     {
@@ -124,6 +146,7 @@ public class UnitDataController : MonoBehaviour
 
         itemContainer.Add(item.type, item);
         SettingValue(item.type);
+        SettingItemSpriet(item.itemSprite, item.type);
 
         return true;
 
@@ -133,7 +156,7 @@ public class UnitDataController : MonoBehaviour
     {
 
         if (!itemContainer.ContainsKey(type)) return false;
-
+        SettingItemSpriet(null, type);
         SettingValue(type, true);
         itemContainer.Remove(type);
 
