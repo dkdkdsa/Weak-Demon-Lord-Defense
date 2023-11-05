@@ -9,6 +9,7 @@ public class UnitUpgradeUI : MonoBehaviour
     [SerializeField] private TMP_Text lvText, attackText, defText, hpText, contText;
 
     private UnitDataController dataController;
+    private PlayerData playerData;
 
     public void SetController(UnitDataController controller)
     {
