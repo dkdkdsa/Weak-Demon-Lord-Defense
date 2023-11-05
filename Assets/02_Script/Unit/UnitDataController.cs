@@ -156,11 +156,26 @@ public class UnitDataController : MonoBehaviour
     {
 
         if (!itemContainer.ContainsKey(type)) return false;
+
         SettingItemSpriet(null, type);
         SettingValue(type, true);
         itemContainer.Remove(type);
 
         return true;
+
+    }
+
+    public ItemData? GetItem(ItemType type)
+    {
+
+        if (itemContainer.ContainsKey(type))
+        {
+
+            return itemContainer[type];
+
+        }
+
+        return null;
 
     }
 
