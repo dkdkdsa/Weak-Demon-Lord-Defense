@@ -20,7 +20,15 @@ public class InventoryViewer : MonoBehaviour
     private void HandleInventoryChanged()
     {
 
+        int cnt = slotRoot.childCount;
 
+        for (int i = 0; i < cnt; i++)
+        {
+
+
+            Destroy(slotRoot.GetChild(0).gameObject);
+
+        }
 
     }
 
