@@ -16,6 +16,8 @@ public class UnitDataController : MonoBehaviour
     [field: SerializeField] public SkillRoot skill { get; protected set; }
     [field: SerializeField] public LayerMask targetLayer { get; protected set; }
     [field: SerializeField] public HPBar hPBarPrefab { get; protected set; }
+    [field: SerializeField] public float lvUpValue { get; protected set; }
+    [field: SerializeField] public float lvUpCost { get; protected set; }
 
     [field: Space]
     [field: Header("AI")]
@@ -30,6 +32,7 @@ public class UnitDataController : MonoBehaviour
 
     public event Action OnValueChanged;
 
+    public int lv { get; protected set; }
     public float currentHP { get; protected set; }
     public float extraAttack { get; protected set; }
     public float extraDef { get; protected set; }
@@ -176,6 +179,17 @@ public class UnitDataController : MonoBehaviour
         }
 
         return null;
+
+    }
+
+    public void LvUp()
+    {
+
+        lv++;
+
+        extraHP += lvUpValue;
+        extraAttack += lvUpValue / 5;
+        extraDef += lvUpValue / 10;
 
     }
 
