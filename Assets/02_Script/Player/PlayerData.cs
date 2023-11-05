@@ -26,7 +26,7 @@ public class PlayerData : MonoBehaviour
 
     }
 
-    private int money;
+    [SerializeField] private int money;
 
     public event Action OnValueChanged;
 

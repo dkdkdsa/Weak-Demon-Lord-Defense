@@ -10,6 +10,7 @@ public class InventoryViewer : MonoBehaviour
 
     private PlayerInventory inventory;
     private EquipUI equipUI;
+    private ItemUpgradeUI upgradeUI;
 
     private void Awake()
     {
@@ -49,6 +50,13 @@ public class InventoryViewer : MonoBehaviour
 
     }
 
+    public void SetItemUpgrade(ItemUpgradeUI upgrade)
+    {
+
+        upgradeUI = upgrade;
+
+    }
+
     private void HandleSlotClick(ItemData? item)
     {
 
@@ -56,6 +64,14 @@ public class InventoryViewer : MonoBehaviour
         {
 
             equipUI.EquipItem(item.Value);
+            return;
+
+        }
+        else if(upgradeUI != null)
+        {
+
+            upgradeUI.SetSlot(item.Value);
+            inventory.RemoveItem(item.Value);
             return;
 
         }

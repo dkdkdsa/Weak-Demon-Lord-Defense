@@ -18,6 +18,7 @@ public class UnitDataController : MonoBehaviour
     [field: SerializeField] public HPBar hPBarPrefab { get; protected set; }
     [field: SerializeField] public float lvUpValue { get; protected set; }
     [field: SerializeField] public float lvUpCost { get; protected set; }
+    [field: SerializeField] public string unitName { get; protected set; }
 
     [field: Space]
     [field: Header("AI")]
@@ -32,7 +33,7 @@ public class UnitDataController : MonoBehaviour
 
     public event Action OnValueChanged;
 
-    public int lv { get; protected set; }
+    public int lv { get; protected set; } = 1;
     public float currentHP { get; protected set; }
     public float extraAttack { get; protected set; }
     public float extraDef { get; protected set; }
@@ -115,6 +116,8 @@ public class UnitDataController : MonoBehaviour
             extraHP -= item.Value.hp;
 
         }
+
+        currentHP = maxHP + extraHP;
 
         OnValueChanged?.Invoke();
 
