@@ -116,6 +116,8 @@ public class UnitDataController : MonoBehaviour
 
         }
 
+        OnValueChanged?.Invoke();
+
     }
 
     private void SettingItemSpriet(Sprite sprite, ItemType type)
@@ -190,6 +192,11 @@ public class UnitDataController : MonoBehaviour
         extraHP += lvUpValue;
         extraAttack += lvUpValue / 5;
         extraDef += lvUpValue / 10;
+        lvUpCost += lvUpValue * 2;
+
+        currentHP = maxHP + extraHP;
+
+        OnValueChanged?.Invoke();
 
     }
 
