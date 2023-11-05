@@ -6,6 +6,7 @@ public class InventoryViewer : MonoBehaviour
 {
 
     [SerializeField] private Transform slotRoot;
+    [SerializeField] private ItemSlot slotPrefab;
 
     private PlayerInventory inventory;
 
@@ -25,8 +26,14 @@ public class InventoryViewer : MonoBehaviour
         for (int i = 0; i < cnt; i++)
         {
 
-
             Destroy(slotRoot.GetChild(0).gameObject);
+
+        }
+
+        foreach(var item in inventory.inventory)
+        {
+
+            Instantiate(slotPrefab, slotRoot).SettingItem(item);
 
         }
 
