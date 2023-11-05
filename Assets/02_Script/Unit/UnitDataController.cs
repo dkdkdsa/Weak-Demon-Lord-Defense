@@ -25,6 +25,7 @@ public class UnitDataController : MonoBehaviour
     protected UnitAnimator animator;
     protected HPBar hpBar;
     protected Dictionary<ItemType, ItemData?> itemContainer = new();
+    protected SpriteRenderer head, body, pants1, pants2, weapon;
 
 
     public event Action OnValueChanged;
@@ -43,6 +44,11 @@ public class UnitDataController : MonoBehaviour
         animator = transform.Find("Visual/UnitRoot").GetComponent<UnitAnimator>();
         skill = Instantiate(skill);
         hpBar = Instantiate(hPBarPrefab, transform.position + new Vector3(0, 2, 0.3f), Quaternion.Euler(45, 0, 0), transform);
+        head = transform.Find("Visual/UnitRoot/Root/BodySet/HeadSet/P_Helmet/11_Helmet1").GetComponent<SpriteRenderer>();
+        body = transform.Find("Visual/UnitRoot/Root/BodySet/Body/P_ArmorBody/BodyArmor").GetComponent<SpriteRenderer>();
+        pants1 = transform.Find("Visual/UnitRoot/Root/P_LFoot/P_LCloth/_2L_Cloth").GetComponent<SpriteRenderer>();
+        pants2 = transform.Find("Visual/UnitRoot/Root/P_RFoot/P_RCloth/_11R_Cloth").GetComponent<SpriteRenderer>();
+        weapon = transform.Find("Visual/UnitRoot/Root/BodySet/ArmSet/ArmL/P_Weapon/L_Weapon").GetComponent<SpriteRenderer>();
 
     }
 
@@ -108,6 +114,8 @@ public class UnitDataController : MonoBehaviour
         }
 
     }
+
+    private void SettingItemSpriet(Sprite sprite)
 
     public bool EquipItem(ItemData item)
     {

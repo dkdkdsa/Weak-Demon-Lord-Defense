@@ -26,7 +26,7 @@ public class InventoryViewer : MonoBehaviour
         for (int i = 0; i < cnt; i++)
         {
 
-            Destroy(slotRoot.GetChild(0).gameObject);
+            Destroy(slotRoot.GetChild(i).gameObject);
 
         }
 

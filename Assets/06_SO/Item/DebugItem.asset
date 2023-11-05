@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 062664086f1d5894a9dd802ec8c68205, type: 3}
-  m_Name: Debug
+  m_Name: DebugItem
   m_EditorClassIdentifier: 
-  weaponSprite: {fileID: 0}
+  weaponSprite: {fileID: -8887937812853701964, guid: 2d4ddbcaa077542029456f5c81f2f981, type: 3}
   type: 0
-  defense: 0
-  attack: 0
-  hp: 0
-  itemName: 
-  upgradeCost: 0
+  defense: 10
+  attack: 10
+  hp: 10
+  itemName: "\uC774\uAC70 \uBB50\uC784?"
+  upgradeCost: 10
