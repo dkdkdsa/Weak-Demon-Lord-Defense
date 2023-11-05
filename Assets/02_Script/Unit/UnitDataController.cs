@@ -44,11 +44,11 @@ public class UnitDataController : MonoBehaviour
         animator = transform.Find("Visual/UnitRoot").GetComponent<UnitAnimator>();
         skill = Instantiate(skill);
         hpBar = Instantiate(hPBarPrefab, transform.position + new Vector3(0, 2, 0.3f), Quaternion.Euler(45, 0, 0), transform);
-        head = transform.Find("Visual/UnitRoot/Root/BodySet/HeadSet/P_Helmet/11_Helmet1").GetComponent<SpriteRenderer>();
-        body = transform.Find("Visual/UnitRoot/Root/BodySet/Body/P_ArmorBody/BodyArmor").GetComponent<SpriteRenderer>();
+        head = transform.Find("Visual/UnitRoot/Root/BodySet/P_Body/HeadSet/P_Head/P_Helmet/11_Helmet1").GetComponent<SpriteRenderer>();
+        body = transform.Find("Visual/UnitRoot/Root/BodySet/P_Body/Body/P_ArmorBody/BodyArmor").GetComponent<SpriteRenderer>();
         pants1 = transform.Find("Visual/UnitRoot/Root/P_LFoot/P_LCloth/_2L_Cloth").GetComponent<SpriteRenderer>();
         pants2 = transform.Find("Visual/UnitRoot/Root/P_RFoot/P_RCloth/_11R_Cloth").GetComponent<SpriteRenderer>();
-        weapon = transform.Find("Visual/UnitRoot/Root/BodySet/ArmSet/ArmL/P_Weapon/L_Weapon").GetComponent<SpriteRenderer>();
+        weapon = transform.Find("Visual/UnitRoot/Root/BodySet/P_Body/ArmSet/ArmL/P_LArm/P_Weapon/L_Weapon").GetComponent<SpriteRenderer>();
 
     }
 

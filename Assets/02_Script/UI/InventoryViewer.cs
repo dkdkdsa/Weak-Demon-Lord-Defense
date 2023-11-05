@@ -33,9 +33,18 @@ public class InventoryViewer : MonoBehaviour
         foreach(var item in inventory.inventory)
         {
 
-            Instantiate(slotPrefab, slotRoot).SettingItem(item);
+            var slot = Instantiate(slotPrefab, slotRoot);
+            slot.SettingItem(item);
+            slot.OnSlotClickEvent += HandleSlotClick;
 
         }
+
+    }
+
+    private void HandleSlotClick(ItemData? item)
+    {
+
+
 
     }
 

@@ -14,9 +14,9 @@ public class ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
 
     private ItemData? currentItem;
 
-    public event Action OnSlotClickEvent;
-    public event Action OnSlotEnterEvent;
-    public event Action OnSlotExitEvent;
+    public event Action<ItemData?> OnSlotClickEvent;
+    public event Action<ItemData?> OnSlotEnterEvent;
+    public event Action<ItemData?> OnSlotExitEvent;
 
     public void SettingItem(ItemData? item)
     {
@@ -51,21 +51,21 @@ public class ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
     public void OnPointerDown(PointerEventData eventData)
     {
 
-        OnSlotClickEvent?.Invoke();
+        OnSlotClickEvent?.Invoke(currentItem);
 
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
 
-        OnSlotEnterEvent?.Invoke();
+        OnSlotEnterEvent?.Invoke(currentItem);
 
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
 
-        OnSlotExitEvent?.Invoke();
+        OnSlotExitEvent?.Invoke(currentItem);
 
     }
 }

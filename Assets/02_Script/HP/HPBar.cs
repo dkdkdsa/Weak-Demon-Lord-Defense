@@ -34,7 +34,7 @@ public class HPBar : MonoBehaviour
     {
 
 
-        float value = dataController.currentHP / dataController.maxHP;
+        float value = dataController.currentHP / (dataController.maxHP + dataController.extraHP);
 
         if (value < 0 ) value = 0;
 
