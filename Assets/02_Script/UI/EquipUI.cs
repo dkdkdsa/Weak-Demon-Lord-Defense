@@ -15,6 +15,7 @@ public class EquipUI : MonoBehaviour
     {
         
         var compo = root.GetComponentsInChildren<ItemSlot>();
+        inventoty = FindObjectOfType<PlayerInventory>();
 
         foreach (var item in compo)
         {

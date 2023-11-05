@@ -9,6 +9,7 @@ public class InventoryViewer : MonoBehaviour
     [SerializeField] private ItemSlot slotPrefab;
 
     private PlayerInventory inventory;
+    private EquipUI equipUI;
 
     private void Awake()
     {
@@ -41,10 +42,23 @@ public class InventoryViewer : MonoBehaviour
 
     }
 
+    public void SetEquip(EquipUI equip)
+    {
+
+        equipUI = equip;
+
+    }
+
     private void HandleSlotClick(ItemData? item)
     {
 
+        if(equipUI != null)
+        {
 
+            equipUI.EquipItem(item.Value);
+            return;
+
+        }
 
     }
 

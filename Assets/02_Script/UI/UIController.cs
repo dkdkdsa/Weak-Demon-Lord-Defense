@@ -8,6 +8,7 @@ public class UIController : MonoBehaviour
 {
 
     private CinemachineVirtualCamera cvcam;
+    private InventoryViewer inventoryViewer;
     private EquipUI equipUI;
 
     public bool isControling { get; private set; }
@@ -17,6 +18,7 @@ public class UIController : MonoBehaviour
 
         cvcam = FindObjectOfType<CinemachineVirtualCamera>();
         equipUI = FindObjectOfType<EquipUI>();
+        inventoryViewer = FindObjectOfType<InventoryViewer>();
 
     }
 
@@ -29,6 +31,7 @@ public class UIController : MonoBehaviour
         cvcam.Follow = unitTrm;
         isControling = true;
         equipUI.SetControl(unitTrm.GetComponent<UnitDataController>());
+        inventoryViewer.SetEquip(equipUI);
 
         StartCoroutine(SetCamera(60, 15));
 
@@ -41,6 +44,9 @@ public class UIController : MonoBehaviour
 
         cvcam.Follow = null;
         isControling = false;
+
+        equipUI.SetControl(null);
+        inventoryViewer.SetEquip(null);
 
         StartCoroutine(SetCamera(15, 60));
 
