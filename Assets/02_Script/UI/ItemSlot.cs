@@ -10,6 +10,7 @@ public class ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
 {
 
     [SerializeField] private Image spriteImage;
+    [SerializeField] private TMP_Text text;
 
     private ItemData? currentItem;
 
@@ -26,6 +27,7 @@ public class ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
         {
 
             spriteImage.color = new Color(0, 0, 0, 0);
+            text.text = string.Empty;
 
         }
         else
@@ -33,6 +35,7 @@ public class ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
 
             spriteImage.color = Color.white;
             spriteImage.sprite = currentItem.Value.itemSprite;
+            text.text = currentItem.Value.lv.ToString();
 
         }
 
