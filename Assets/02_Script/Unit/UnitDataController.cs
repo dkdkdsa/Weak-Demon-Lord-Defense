@@ -69,6 +69,8 @@ public class UnitDataController : MonoBehaviour
 
         damage = Mathf.Clamp(damage, 0f, maxHP + extraHP);
 
+        SoundManager.Instance.PlaySound("HitHurt");
+
         if (damage == 0)
         {
 

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 270444e159649cd4dba802fc2424deff, type: 3}
+  m_Name: SoundData
+  m_EditorClassIdentifier: 
+  data:
+  - clip: {fileID: 8300000, guid: 9f3a0db58bfe15745afd81aa2d7ab450, type: 3}
+    name: BatchSound
+  - clip: {fileID: 8300000, guid: 4b1dc78a424886d479988ae81fc8aba9, type: 3}
+    name: Button
+  - clip: {fileID: 8300000, guid: 79e62c8f6e618b04d875e4501cf9f8a9, type: 3}
+    name: Gameover
+  - clip: {fileID: 8300000, guid: 87cbf28ce3e94bc41b943523a5d63cfb, type: 3}
+    name: ItemClick
+  - clip: {fileID: 8300000, guid: a66c1c3c12216dd49a2b0d3632d544c6, type: 3}
+    name: LevelUp
+  - clip: {fileID: 8300000, guid: 8e4317171a5d81945a5ee91771cc9e6b, type: 3}
+    name: WaveLose
+  - clip: {fileID: 8300000, guid: a04a49ae07a392541997abb1f65fd18e, type: 3}
+    name: BoomSkillSound
+  - clip: {fileID: 8300000, guid: fd7c10512c0930c48bc0a40b7998d7af, type: 3}
+    name: HitHurt
+  - clip: {fileID: 8300000, guid: 7fe5d037b55619645b35a8f6670b7208, type: 3}
+    name: VoltSkill

@@ -43,6 +43,7 @@ public class ItemObject : MonoBehaviour
     {
         
         FindObjectOfType<PlayerInventory>().AddItem(so);
+        SoundManager.Instance.PlaySound("ItemClick");
         Destroy(gameObject);
 
     }

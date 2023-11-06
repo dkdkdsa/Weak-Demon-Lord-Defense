@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
+    [Header("Player")]
+    [SerializeField] private Transform playerTrs;
 
     [SerializeField] private Transform inventory, unitUpgrade, itemUpgrade, equip, hpPanel, deckPanel;
 
@@ -221,7 +223,7 @@ public class UIController : MonoBehaviour
 
         if(!isControling) return;
 
-        cvcam.Follow = null;
+        cvcam.Follow = playerTrs;
         isControling = false;
 
         equipUI.SetControl(null);
@@ -236,6 +238,16 @@ public class UIController : MonoBehaviour
 
         StartCoroutine(SetCamera(15, 60));
 
+    }
+
+    public void ButtonSound()
+    {
+        SoundManager.Instance.PlaySound("Button");
+    }
+
+    public void UpgradeSound()
+    {
+        SoundManager.Instance.PlaySound("LevelUp");
     }
 
     private IEnumerator SetCamera(float start, float end)
