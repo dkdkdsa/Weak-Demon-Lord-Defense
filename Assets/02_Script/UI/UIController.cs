@@ -10,7 +10,7 @@ public class UIController : MonoBehaviour
     [Header("Player")]
     [SerializeField] private Transform playerTrs;
 
-    [SerializeField] private Transform inventory, unitUpgrade, itemUpgrade, equip, hpPanel, deckPanel;
+    [SerializeField] private Transform inventory, unitUpgrade, itemUpgrade, equip, hpPanel, profilePanel, deckPanel;
 
     private CinemachineVirtualCamera cvcam;
     private InventoryViewer inventoryViewer;
@@ -35,6 +35,7 @@ public class UIController : MonoBehaviour
     {
 
         SetHpPanel(true);
+        SetProfilePanel(true);
         SetDeckPanel(true);
         WaveManager.instance.OnWaveStartEvent += HandleWaveStart;
         WaveManager.instance.OnWaveEndEvent += HandleWaveEnd;
@@ -130,6 +131,25 @@ public class UIController : MonoBehaviour
         }
 
     }
+
+    private void SetProfilePanel(bool open)
+    {
+
+        if (open)
+        {
+
+            profilePanel.DOLocalMoveY(0, 0.3f).SetEase(Ease.OutQuad);
+
+        }
+        else
+        {
+
+            profilePanel.DOLocalMoveY(1100, 0.3f).SetEase(Ease.OutQuad);
+
+        }
+
+    }
+
     private void SetDeckPanel(bool open)
     {
 
@@ -152,6 +172,7 @@ public class UIController : MonoBehaviour
     {
 
         SetHpPanel(false);
+        SetProfilePanel(false);
         SetDeckPanel(false);
 
     }
@@ -160,6 +181,7 @@ public class UIController : MonoBehaviour
     {
 
         SetHpPanel(true);
+        SetProfilePanel(true);
         SetDeckPanel(true);
 
     }
@@ -171,6 +193,7 @@ public class UIController : MonoBehaviour
         isControling = true;
 
         SetHpPanel(false);
+        SetProfilePanel(false);
         SetDeckPanel(false);
         SetInventroyPanel(true);
         SetItemUpgradePanel(true);
@@ -186,6 +209,7 @@ public class UIController : MonoBehaviour
         isControling = false;
 
         SetHpPanel(true);
+        SetProfilePanel(true);
         SetDeckPanel(true);
         SetInventroyPanel(false);
         SetItemUpgradePanel(false);
@@ -209,6 +233,7 @@ public class UIController : MonoBehaviour
         inventoryViewer.SetEquip(equipUI);
 
         SetHpPanel(false);
+        SetProfilePanel(false);
         SetDeckPanel(false);
         SetInventroyPanel(true);
         SetUnitUgradePanel(true);
@@ -231,6 +256,7 @@ public class UIController : MonoBehaviour
         unitUpgradeUI.ReleaseControl();
 
         SetHpPanel(true);
+        SetProfilePanel(true);
         SetDeckPanel(true);
         SetInventroyPanel(false);
         SetUnitUgradePanel(false);
