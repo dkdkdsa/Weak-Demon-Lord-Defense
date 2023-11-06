@@ -187,7 +187,7 @@ MonoBehaviour:
   <attackTime>k__BackingField: 5
   <skillCoolDown>k__BackingField: 3
   <maxHP>k__BackingField: 100
-  <skill>k__BackingField: {fileID: 11400000, guid: de38cd4a0d2b8b943a2082e5ecc58b69, type: 2}
+  <skill>k__BackingField: {fileID: 11400000, guid: 1997b4849e761394eb2446089341ec76, type: 2}
   <targetLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
@@ -197,6 +197,7 @@ MonoBehaviour:
   <unitName>k__BackingField: "\uC5B4\uCF00\uC5BB\uC74C?"
   <range>k__BackingField: 44.6
   <attackAbleRange>k__BackingField: 3
+  <rootMat>k__BackingField: {fileID: 0}
 --- !u!114 &6210747949325235594
 MonoBehaviour:
   m_ObjectHideFlags: 0

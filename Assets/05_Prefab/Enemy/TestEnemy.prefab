@@ -2249,6 +2249,7 @@ MonoBehaviour:
   <unitName>k__BackingField: "\uC5B4\uCF00\uC5BB\uC74C?"
   <range>k__BackingField: 79.64
   <attackAbleRange>k__BackingField: 3
+  <rootMat>k__BackingField: {fileID: 0}
 --- !u!114 &1815176108587801063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2297,6 +2298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b382d88105bdd6c418be4f8576f09d36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  so: {fileID: 11400000, guid: eef501756cf987846a71db0ad3ea9202, type: 2}
 --- !u!114 &5393253306903646915
 MonoBehaviour:
   m_ObjectHideFlags: 0

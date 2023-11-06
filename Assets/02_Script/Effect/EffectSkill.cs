@@ -20,6 +20,7 @@ public class EffectSkill : MonoBehaviour
             foreach (var item in arr)
             {
 
+                if(item == null) continue;
                 item.GetComponent<UnitDataController>().TakeDamage(damage);
 
             }

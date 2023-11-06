@@ -7,6 +7,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(CapsuleCollider))]
 [RequireComponent(typeof(UnitDataController))]
 [RequireComponent(typeof(UnitController))]
+[RequireComponent(typeof(FeedBackPlayer))]
 public class UnitBase : MonoBehaviour
 {
 

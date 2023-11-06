@@ -46,6 +46,7 @@ public class DeckSlot : MonoBehaviour, IPointerDownHandler
 
         iconSprite.sprite = sprite;
         currentCost = cost;
+        costText.text = cost.ToString();
         currentPrefab = prefab;
 
     }

@@ -1,3 +1,4 @@
+using Cinemachine;
 using DG.Tweening;
 using FD.Dev;
 using System.Collections;
@@ -12,6 +13,14 @@ public class FeedBackPlayer : MonoBehaviour
     [SerializeField] private string effectKey;
 
     private bool isShack;
+    private CinemachineImpulseSource cls;
+
+    private void Awake()
+    {
+        
+        cls = FindObjectOfType<CinemachineImpulseSource>();
+
+    }
 
     public void PlayFeedback(float damage)
     {
@@ -20,7 +29,14 @@ public class FeedBackPlayer : MonoBehaviour
         SetText(damage);
         Shack();
         SetParticle();
+        CameraShack();
 
+    }
+
+    private void CameraShack()
+    {
+
+        cls.GenerateImpulse(0.2f);
 
     }
 

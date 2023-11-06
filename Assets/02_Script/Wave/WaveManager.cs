@@ -64,7 +64,7 @@ public class WaveManager : MonoBehaviour
                 if (currentWave - 1 == -1) currentWave = waves.Count - 1;
                 else currentWave--;
                 addWave--;
-
+                waveText.text = $"WAVE {addWave}";
                 barHP -= 10;
                 barTrm.value = barHP;
 
