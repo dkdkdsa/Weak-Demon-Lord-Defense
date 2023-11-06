@@ -72,6 +72,8 @@ public class WaveManager : MonoBehaviour
                 {
 
                     OnWaveDieEvent?.Invoke();
+                    //죽기 직전에 할거 다하고 씬 넘어가야됨
+                    SceneManager.LoadScene("Gameover");
                     return;
 
                 }

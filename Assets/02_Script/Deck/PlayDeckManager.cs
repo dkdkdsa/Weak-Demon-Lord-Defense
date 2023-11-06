@@ -1,3 +1,4 @@
+using DarkPixelRPGUI.Scripts.UI.Equipment;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class PlayDeckManager : MonoBehaviour
     [SerializeField] private GameObject setPosGreen;
     [SerializeField] private Grid grid;
     [SerializeField] private DeckSlot slotPrefab;
+    [SerializeField] private GameObject slotParticle;
     [SerializeField] private Transform deckRoot;
 
     private Vector3 setPos;
@@ -78,6 +80,8 @@ public class PlayDeckManager : MonoBehaviour
 
         setPosGreen.SetActive(false);
         Instantiate(currentPrefab, setPos, Quaternion.identity);
+        var slotPart = Instantiate(slotParticle, setPos + new Vector3(0, 0.7f), Quaternion.Euler(45, 0, 0));
+        StartCoroutine(slotPart.GetComponent<BatchEffect>().EffectPush(0.4f));
         //여기서 이팩트
         settingStart = false;
         currentPrefab = null;
