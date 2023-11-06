@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,9 +20,33 @@ public class IntroSystem : MonoBehaviour
     [Header("StagePanel")]
     [SerializeField] private RectTransform stagePanel;
 
+    [Header("Login")]
+    [SerializeField] private Transform singUp;
+    [SerializeField] private Transform login;
+    [SerializeField] private TMP_Text nameText;
+    [SerializeField] private GameObject btnss;
+
     const float title_1Ypos = 270f + 540f;
     const float title_2Xpos = 960f;
     const float btnsYpos = 540f;
+
+    private SingUpUI singUpUI;
+    private LoginUI loginUI;
+
+    private void Awake()
+    {
+        
+        singUpUI = GetComponent<SingUpUI>();
+        loginUI = GetComponent<LoginUI>();
+
+        if(AuthManager.instance.userData.userName != null)
+        {
+
+            nameText.text = AuthManager.instance.userData.userName;
+
+        }
+
+    }
 
     private void Start()
     {
@@ -49,6 +74,80 @@ public class IntroSystem : MonoBehaviour
         sequence.Append(introPanel.DOMoveY(540, 0.5f).SetEase(Ease.OutExpo));
     }
 
+    public void LoginPanel(bool open)
+    {
+
+        if (open)
+        {
+
+            login.transform.DOLocalMoveY(0, 0.5f).SetEase(Ease.OutQuad);
+
+        }
+        else
+        {
+
+            login.transform.DOLocalMoveY(1100, 0.5f).SetEase(Ease.OutQuad);
+
+        }
+
+    }
+
+    public void SignUpPanel(bool open)
+    {
+
+        if (open)
+        {
+
+            singUp.transform.DOLocalMoveY(0, 0.5f).SetEase(Ease.OutQuad);
+
+        }
+        else
+        {
+
+            singUp.transform.DOLocalMoveY(1100, 0.5f).SetEase(Ease.OutQuad);
+
+        }
+
+    }
+
+    public void SignUp()
+    {
+
+        singUpUI.SingUp((x) =>
+        {
+
+            if(x == true)
+            {
+
+                btnss.gameObject.SetActive(false);
+                SignUpPanel(false);
+                nameText.text = AuthManager.instance.userData.userName;
+
+            }
+
+        });
+
+    }
+
+    public void Login()
+    {
+
+        loginUI.Login((x) =>
+        {
+
+            if (x == true)
+            {
+
+                btnss.gameObject.SetActive(false);
+                LoginPanel(false);
+                nameText.text = AuthManager.instance.userData.userName;
+
+            }
+
+        });
+
+    }
+
     public void NextScene(string name)
     {
         SoundManager.Instance.PlaySound("Button");
@@ -59,4 +158,5 @@ public class IntroSystem : MonoBehaviour
     {
         Application.Quit();
     }
+
 }

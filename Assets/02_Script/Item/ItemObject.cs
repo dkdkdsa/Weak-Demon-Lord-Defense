@@ -12,30 +12,12 @@ public class ItemObject : MonoBehaviour
     private void Awake()
     {
 
-        FAED.InvokeDelayRealTime(() =>
-        {
-
-            try
-            {
-
-                if (gameObject == null) return;
-
-                Destroy(gameObject);
-
-            }
-            catch(System.Exception ex)
-            {
-
-                Debug.Log("ㅏㅎ하하하ㅏ하하에러가 뭘할수있는데ㅏ하하하핳");
-
-            }///
-
-
-
-        }, 15);
+        
         var randVec = Random.insideUnitSphere;
         randVec.y = 0;
         GetComponent<Rigidbody>().velocity = (Vector3.up + randVec) * 5;
+
+        StartCoroutine(Del());
 
     }
 
@@ -45,6 +27,15 @@ public class ItemObject : MonoBehaviour
         FindObjectOfType<PlayerInventory>().AddItem(so);
         SoundManager.Instance.PlaySound("ItemClick");
         Destroy(gameObject);
+
+    }
+
+    private IEnumerator Del()
+    {
+
+        yield return new WaitForSeconds(15f);
+        Destroy(gameObject);
+
 
     }
 

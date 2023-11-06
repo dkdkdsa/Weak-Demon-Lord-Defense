@@ -6,6 +6,7 @@ using Firebase.Database;
 using Firebase;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
 
 [System.Serializable]
 public struct UserData
@@ -33,7 +34,7 @@ public class AuthManager
         auth = FirebaseAuth.DefaultInstance;
         database = FirebaseDatabase.DefaultInstance.RootReference;
         userData = new UserData();
-        Login("", "");
+
     }
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -62,7 +63,7 @@ public class AuthManager
 
     }
 
-    public async void SingUp(string email, string password, string userName)
+    public async void SingUp(string email, string password, string userName, Action<bool> comp)
     {
 
         if (userData.userName != null) return;
@@ -72,18 +73,21 @@ public class AuthManager
 
             var res = await auth.CreateUserWithEmailAndPasswordAsync(email, password);
             SingUpComplete(email, userName);
+            comp?.Invoke(true);
 
         }
         catch(System.Exception e)
         {
 
             Debug.Log("이미 가입된 email");
+            Debug.Log(e);
+            comp?.Invoke(false);
 
         }
 
     }
 
-    public async void Login(string email, string password)
+    public async void Login(string email, string password, Action<bool> comp)
     {
 
         if (userData.userName != null) return;
@@ -117,11 +121,14 @@ public class AuthManager
             userData.time = int.Parse(obj["time"].ToString());
             userData.maxWave = int.Parse(obj["maxWave"].ToString());
 
+            comp?.Invoke(true);
+
         }
         catch(System.Exception e)
         {
 
             Debug.Log(e.ToString());
+            comp?.Invoke(false);
 
         }
 
@@ -136,12 +143,20 @@ public class AuthManager
 
         List<IDictionary> ress = new List<IDictionary>();
 
+        Debug.Log(res.ChildrenCount);
+
         res.Children.ToList().ForEach((x) =>
         {
 
             var obj = (IDictionary)(x.Value);
 
-            ress.Add(obj);
+            if(obj != null)
+            {
+
+                ress.Add(obj);
+
+            }
+
 
         });
 

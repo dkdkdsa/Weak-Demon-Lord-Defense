@@ -72,6 +72,15 @@ public class WaveManager : MonoBehaviour
                 {
 
                     OnWaveDieEvent?.Invoke();
+
+                    if(AuthManager.instance.userData.userName != null)
+                    {
+
+                        AuthManager.instance.userData.maxWave = addWave;
+                        AuthManager.instance.Setting();
+
+                    }
+
                     return;
 
                 }
