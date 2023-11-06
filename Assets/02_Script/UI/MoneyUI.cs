@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MoneyUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private PlayerData playerData;
+    [SerializeField] private TextMeshProUGUI moneyText;
+
+    private void Awake()
     {
-        
+        playerData.OnValueChanged += MoneyUIText;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void MoneyUIText()
     {
-        
+        moneyText.text = $"Money : {playerData.Money}";
     }
 }

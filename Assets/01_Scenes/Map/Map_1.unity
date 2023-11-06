@@ -16579,7 +16579,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 0.6980638, b: 0, a: 1}
+  m_Color: {r: 0.9811321, g: 0.8393941, b: 0.5127803, a: 1}
   m_Intensity: 382.2
   m_Range: 309.11
   m_SpotAngle: 123.712524
@@ -21503,6 +21503,7 @@ GameObject:
   - component: {fileID: 2030047124}
   - component: {fileID: 2030047123}
   - component: {fileID: 2030047128}
+  - component: {fileID: 2030047129}
   m_Layer: 0
   m_Name: UIScript
   m_TagString: Untagged
@@ -21631,6 +21632,20 @@ MonoBehaviour:
   orgSprite: {fileID: 21300000, guid: b6f2ef935e38b2740852881d71b717a9, type: 3}
   winSprite: {fileID: 21300000, guid: ea0cd9e663e3f574b9688b5cf971426d, type: 3}
   loseSprite: {fileID: 21300000, guid: 136fdd6dafa2a7d489994fab00633f29, type: 3}
+--- !u!114 &2030047129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030047121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5eb72c8a130f484a86703202e578af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 726295366}
+  moneyText: {fileID: 1399521852}
 --- !u!1 &2041304671
 GameObject:
   m_ObjectHideFlags: 0
