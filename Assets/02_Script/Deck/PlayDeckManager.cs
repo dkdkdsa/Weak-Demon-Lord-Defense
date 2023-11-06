@@ -78,8 +78,10 @@ public class PlayDeckManager : MonoBehaviour
 
         setPosGreen.SetActive(false);
         Instantiate(currentPrefab, setPos, Quaternion.identity);
+        //여기서 이팩트
         settingStart = false;
         currentPrefab = null;
+        SoundManager.Instance.PlaySound("BatchSound");
 
     }
 

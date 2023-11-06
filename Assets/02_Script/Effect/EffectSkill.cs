@@ -16,6 +16,7 @@ public class EffectSkill : MonoBehaviour
 
         FAED.InvokeDelay(() =>
         {
+            SoundManager.Instance.PlaySound("BoomSkillSound");
 
             foreach (var item in arr)
             {

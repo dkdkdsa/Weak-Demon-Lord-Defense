@@ -96,6 +96,8 @@ public class WaveManager : MonoBehaviour
 
                 totalCount = 0;
 
+                SoundManager.Instance.PlaySound("WaveLose");
+
                 OnWaveFailureEvent?.Invoke();
 
             }

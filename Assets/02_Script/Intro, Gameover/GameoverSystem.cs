@@ -11,6 +11,8 @@ public class GameoverSystem : MonoBehaviour
 
     private void Start()
     {
+        SoundManager.Instance.PlaySound("Gameover");
+
         titleTrs.DOMoveY(800, 0.3f).SetEase(Ease.InExpo).OnComplete(() => {
             titleTrs.DORotate(new Vector3(0, 0, 180), 0.3f).SetEase(Ease.InCirc).OnComplete(() => {
                 titleTrs.DORotate(new Vector3(0, 0, 360), 0.3f).SetEase(Ease.OutCirc);

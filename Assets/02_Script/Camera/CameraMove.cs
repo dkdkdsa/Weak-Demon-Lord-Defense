@@ -17,6 +17,7 @@ public class CameraMove : MonoBehaviour
 
     private Camera cam;
     private CinemachineVirtualCamera vcam;
+    private PlayDeckManager deckManager;
     private Vector2 clickPoint;
 
     public bool moveAble = true;
@@ -25,6 +26,7 @@ public class CameraMove : MonoBehaviour
     {
         cam = Camera.main;
         vcam = GetComponent<CinemachineVirtualCamera>();
+        deckManager = FindObjectOfType<PlayDeckManager>();
     }
 
     private void Update()
@@ -43,9 +45,7 @@ public class CameraMove : MonoBehaviour
         }
         if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            //이걸 보고 있다면 배치 중 카메라가 움직여서 직접 뜯어 고칠려고 이 스크립트를 열었겠지 최대원,
-            //아래의 주석을 풀면 된다고?(너가 배치메니저를 그대로 쓴다면야)
-            //if (BatchManager.Instance.isDrag) return;
+            if (deckManager.settingStart) return;
 
             Vector3 position
                     = Camera.main.ScreenToViewportPoint((Vector2)Input.mousePosition - clickPoint);

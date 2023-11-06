@@ -51,7 +51,7 @@ public class IntroSystem : MonoBehaviour
 
     public void NextScene(string name)
     {
-        //SoundManager.Instance.PlaySound("Button");
+        SoundManager.Instance.PlaySound("Button");
         SceneManager.LoadScene(name);
     }
 
