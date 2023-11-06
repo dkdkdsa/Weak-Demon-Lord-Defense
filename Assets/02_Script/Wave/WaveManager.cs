@@ -22,7 +22,7 @@ public class EnemySpawnData
 public class WaveData
 {
 
-    [Header("Àûµé")]
+    [Header("ï¿½ï¿½ï¿½ï¿½")]
     public List<EnemySpawnData> enemys;
 
     [Space]
@@ -81,6 +81,7 @@ public class WaveManager : MonoBehaviour
 
                     }
 
+                    SceneManager.LoadScene("Gameover");
                     return;
 
                 }
