@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class ClickAbleUnit : MonoBehaviour
 {
-
     private UIController controller;
 
     private void Awake()

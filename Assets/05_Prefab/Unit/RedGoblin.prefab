@@ -2693,6 +2693,7 @@ GameObject:
   - component: {fileID: 6230422927025472884}
   - component: {fileID: 2225819983594642663}
   - component: {fileID: 8808305992438311394}
+  - component: {fileID: 5341483609888602752}
   - component: {fileID: 9205888087612709617}
   - component: {fileID: -8881339625886054840}
   - component: {fileID: 4900340443492263502}
@@ -2819,6 +2820,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageTextKey: DamageBlue
   effectKey: HitPTC
+--- !u!114 &5341483609888602752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5908670526803692813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e778bdb81b4b944d9b155ef7cd1b0ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &9205888087612709617
 MonoBehaviour:
   m_ObjectHideFlags: 0
