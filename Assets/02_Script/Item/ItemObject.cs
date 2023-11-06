@@ -28,7 +28,7 @@ public class ItemObject : MonoBehaviour
 
                 Debug.Log("ㅏㅎ하하하ㅏ하하에러가 뭘할수있는데ㅏ하하하핳");
 
-            }
+            }///
 
 
 
