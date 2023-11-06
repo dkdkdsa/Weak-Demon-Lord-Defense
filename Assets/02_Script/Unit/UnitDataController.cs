@@ -25,10 +25,15 @@ public class UnitDataController : MonoBehaviour
     [field: SerializeField] public float range { get; protected set; }
     [field: SerializeField] public float attackAbleRange { get; protected set; }
 
+    [field: Space]
+    [field: Header("Mat")]
+    [field: SerializeField] public Material rootMat { get; protected set; }
+
     protected UnitAnimator animator;
     protected HPBar hpBar;
     protected Dictionary<ItemType, ItemData?> itemContainer = new();
     protected SpriteRenderer head, body, pants1, pants2, weapon;
+    protected FeedBackPlayer feedBackPlayer;
 
 
     public event Action OnValueChanged;
@@ -45,6 +50,7 @@ public class UnitDataController : MonoBehaviour
     {
 
         currentHP = maxHP;
+        feedBackPlayer = GetComponent<FeedBackPlayer>();
         animator = transform.Find("Visual/UnitRoot").GetComponent<UnitAnimator>();
         skill = Instantiate(skill);
         hpBar = Instantiate(hPBarPrefab, transform.position + new Vector3(0, 2, 0.3f), Quaternion.Euler(45, 0, 0), transform);
@@ -66,7 +72,13 @@ public class UnitDataController : MonoBehaviour
         if (damage == 0)
         {
 
-            //DoSom
+            feedBackPlayer.PlayFeedback(-1);
+
+        }
+        else
+        {
+
+            feedBackPlayer.PlayFeedback((int)damage);
 
         }
 

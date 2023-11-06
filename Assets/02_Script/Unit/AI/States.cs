@@ -162,7 +162,7 @@ public class SkillState : UnitStateRoot
 
         if (hits.Length <= 0) return;
 
-        dataController.skill.DoSkill(hits[ChackMin(hits)].transform, transform, dataController.targetLayer);
+        dataController.skill.DoSkill(transform, hits[ChackMin(hits)].transform, dataController.targetLayer);
 
     }
 
@@ -291,6 +291,8 @@ public class MoveState : UnitStateRoot
 
     public override void Enter()
     {
+
+        if (agent == null) return;
 
         agent.isStopped = false;
 

@@ -3315,6 +3315,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setPosGreen: {fileID: 1463531071}
   grid: {fileID: 1440056525}
+  slotPrefab: {fileID: 1424297587677661086, guid: 55b4a23be1d96b545a05c0f6e3ad69ac, type: 3}
+  deckRoot: {fileID: 1580532015}
 --- !u!1 &996213077
 GameObject:
   m_ObjectHideFlags: 0
@@ -5037,7 +5039,7 @@ MonoBehaviour:
   itemUpgrade: {fileID: 1747871694}
   equip: {fileID: 1436298390}
   hpPanel: {fileID: 1007507313}
-  deckPanel: {fileID: 0}
+  deckPanel: {fileID: 360686792}
 --- !u!114 &1603771374
 MonoBehaviour:
   m_ObjectHideFlags: 0

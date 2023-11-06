@@ -7,10 +7,30 @@ public class PlayDeckManager : MonoBehaviour
 
     [SerializeField] private GameObject setPosGreen;
     [SerializeField] private Grid grid;
+    [SerializeField] private DeckSlot slotPrefab;
+    [SerializeField] private Transform deckRoot;
 
     private Vector3 setPos;
     private GameObject currentPrefab;
     public bool settingStart { get; private set; }
+
+    private void Awake()
+    {
+
+        var save = JSON.ReadJson<DeckSaveData>(Application.dataPath + @"\Deck.json");
+        var res = Resources.Load<DeckBindingSO>("Bind");
+
+        foreach(var item in save.deckSave)
+        {
+
+            var obj = res.bindList.Find(x => x.key == item);
+
+            var slot = Instantiate(slotPrefab, deckRoot);
+            slot.Setting(obj.iconSprite, obj.cost, obj.unitPrefab);
+
+        }
+
+    }
 
     private void Update()
     {
@@ -47,6 +67,7 @@ public class PlayDeckManager : MonoBehaviour
         setPosGreen.SetActive(true);
         currentPrefab = prefab;
         settingStart = true;
+        WaveManager.instance.TurretCnt++;
 
     }
 

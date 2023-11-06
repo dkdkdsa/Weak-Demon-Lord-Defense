@@ -169,6 +169,7 @@ public class UIController : MonoBehaviour
         isControling = true;
 
         SetHpPanel(false);
+        SetDeckPanel(false);
         SetInventroyPanel(true);
         SetItemUpgradePanel(true);
 
@@ -183,6 +184,7 @@ public class UIController : MonoBehaviour
         isControling = false;
 
         SetHpPanel(true);
+        SetDeckPanel(true);
         SetInventroyPanel(false);
         SetItemUpgradePanel(false);
 
@@ -205,6 +207,7 @@ public class UIController : MonoBehaviour
         inventoryViewer.SetEquip(equipUI);
 
         SetHpPanel(false);
+        SetDeckPanel(false);
         SetInventroyPanel(true);
         SetUnitUgradePanel(true);
         SetEquipPanel(true);
@@ -226,6 +229,7 @@ public class UIController : MonoBehaviour
         unitUpgradeUI.ReleaseControl();
 
         SetHpPanel(true);
+        SetDeckPanel(true);
         SetInventroyPanel(false);
         SetUnitUgradePanel(false);
         SetEquipPanel(false);

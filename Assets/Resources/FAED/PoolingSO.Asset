@@ -12,5 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50a87865d090e2b41a4425fdde434ffb, type: 3}
   m_Name: PoolingSO
   m_EditorClassIdentifier: 
-  alwaysPoolingObjects: []
+  alwaysPoolingObjects:
+  - poolingKey: DamageRed
+    poolingObject: {fileID: 6739824477549592620, guid: ab7b379981f8bf440a293a7b98156682, type: 3}
+    poolCount: 10
+  - poolingKey: DamageBlue
+    poolingObject: {fileID: 1175965493744621114, guid: c9ec221a5d885f14186d0328624da06f, type: 3}
+    poolCount: 10
+  - poolingKey: HitPTC
+    poolingObject: {fileID: 42152878266658389, guid: d659a74ff85e3fe4bba85b2b4505c7dd, type: 3}
+    poolCount: 10
+  - poolingKey: SkillText
+    poolingObject: {fileID: 776730870057317024, guid: 324e823a786b98949827dfba167e608f, type: 3}
+    poolCount: 10
   scenePoolingObjects: []

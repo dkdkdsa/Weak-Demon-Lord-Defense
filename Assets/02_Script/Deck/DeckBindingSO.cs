@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+[System.Serializable]
+public struct DeckSaveData
+{
+
+    public List<string> deckSave;
+
+}
+
 [CreateAssetMenu(menuName = "SO/Binding")]
 public class DeckBindingSO : ScriptableObject
 {
@@ -14,6 +22,7 @@ public class DeckBindingSO : ScriptableObject
         public string key;
         public Sprite iconSprite;
         public GameObject unitPrefab;
+        public int cost;
 
     }
 

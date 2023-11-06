@@ -71,7 +71,6 @@ public class WaveManager : MonoBehaviour
                 if (barHP <= 0)
                 {
 
-
                     OnWaveDieEvent?.Invoke();
                     return;
 
@@ -202,7 +201,8 @@ public class WaveManager : MonoBehaviour
 
             Transform trm = summonPos[r];
 
-            var pos = (Vector2)trm.position + (Random.insideUnitCircle * 2);
+            var pos = trm.position + (Random.insideUnitSphere * 2);
+            pos.y = 0;
 
             var obj = Instantiate(data.enemy, pos, Quaternion.identity);
 

@@ -2151,6 +2151,8 @@ GameObject:
   - component: {fileID: 1815176108587801063}
   - component: {fileID: 1383005138059871536}
   - component: {fileID: 8228453274059954737}
+  - component: {fileID: 1391369680964028199}
+  - component: {fileID: 5393253306903646915}
   m_Layer: 6
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -2283,6 +2285,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7edf1f06c8dddc43970eb52fef83c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1391369680964028199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5614176971053745552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b382d88105bdd6c418be4f8576f09d36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5393253306903646915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5614176971053745552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560eadc6e77f4d44aba9344992c7dc5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageTextKey: DamageRed
+  effectKey: HitPTC
 --- !u!1 &5619339346494132080
 GameObject:
   m_ObjectHideFlags: 0
