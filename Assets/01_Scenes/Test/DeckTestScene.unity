@@ -885,7 +885,7 @@ MonoBehaviour:
   slotPrefab: {fileID: 179005246873764381, guid: 87d124a5fe083d14fa81d96f89b49106, type: 3}
   deckRoot: {fileID: 1438932917}
   cardRoot: {fileID: 1582312223}
-  nextScene: AITestScene
+  nextScene: Map_1
 --- !u!4 &1413479041
 Transform:
   m_ObjectHideFlags: 0

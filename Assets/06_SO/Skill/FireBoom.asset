@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillValue: 10
   prefab: {fileID: 8860795940306439694, guid: f39712ab5d184c04a9858be3594501fe, type: 3}
-  skillName: "\uB9C8\uADF8\uB9C8 \uD3ED\uD314"
+  skillName: "\uB9C8\uADF8\uB9C8 \uD3ED\uBC1C"

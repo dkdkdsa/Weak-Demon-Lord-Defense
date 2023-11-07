@@ -78,8 +78,13 @@ public class WaveManager : MonoBehaviour
                     if(AuthManager.instance.userData.userName != null)
                     {
 
-                        AuthManager.instance.userData.maxWave = addWave;
-                        AuthManager.instance.Setting();
+                        if(AuthManager.instance.userData.maxWave < addWave)
+                        {
+
+                            AuthManager.instance.userData.maxWave = addWave;
+                            AuthManager.instance.Setting();
+
+                        }
 
                     }
 

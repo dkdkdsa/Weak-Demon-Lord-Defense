@@ -44,6 +44,7 @@ public class IntroSystem : MonoBehaviour
         {
 
             nameText.text = AuthManager.instance.userData.userName;
+            btnss.SetActive(false);
 
         }
 
@@ -158,6 +159,7 @@ public class IntroSystem : MonoBehaviour
 
                 btnss.gameObject.SetActive(false);
                 SignUpPanel(false);
+                InStagePanel();
                 nameText.text = AuthManager.instance.userData.userName;
 
             }
@@ -177,6 +179,7 @@ public class IntroSystem : MonoBehaviour
 
                 btnss.gameObject.SetActive(false);
                 LoginPanel(false);
+                InStagePanel();
                 nameText.text = AuthManager.instance.userData.userName;
 
             }

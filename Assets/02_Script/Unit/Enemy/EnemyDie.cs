@@ -23,7 +23,7 @@ public class EnemyDie : MonoBehaviour
     private void HandleDie()
     {
 
-        if(Random.value > 0.3f)
+        if(Random.value > 0.7f)
         {
 
             var val = Random.Range(0, so.dropItems.Count);

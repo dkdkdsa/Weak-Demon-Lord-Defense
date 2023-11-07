@@ -9,28 +9,74 @@ public class RankingUI : MonoBehaviour
 
     [SerializeField] private TMP_Text t1, t2, t3;
 
-    private async void Start()
+    private void Start()
+    {
+
+        Refrech();
+
+    }
+
+    public async void Refrech()
     {
 
         var arr = await AuthManager.instance.GetAllValue();
 
         if (arr == null) return;
 
-        var sarr = arr.OrderByDescending(x => int.Parse(x["maxWave"].ToString()));
-
-        int cnt = 0;
-
-        foreach(var itme in sarr)
+        try
         {
 
 
-            if (cnt == 0) t1.text = $"{itme["userName"]} : {itme["maxWave"]}";
-            if (cnt == 1) t2.text = $"{itme["userName"]} : {itme["maxWave"]}";
-            if (cnt == 2) t3.text = $"{itme["userName"]} : {itme["maxWave"]}";
+            var sarr = arr.OrderByDescending(x =>
+            {
 
-            cnt++;
+                if(x["maxWave"] != null)
+                {
 
-            if (cnt == 3) break;
+                    return int.Parse(x["maxWave"].ToString());
+
+                }
+                else
+                {
+
+                    Debug.Log(123123123123123123);
+                    return -1;
+
+                }
+
+            });
+
+            int cnt = 0;
+
+            foreach (var itme in sarr)
+            {
+
+
+                if (cnt == 0) t1.text = $"1위 {itme["userName"]} : {itme["maxWave"]}";
+                if (cnt == 1) t2.text = $"2위 {itme["userName"]} : {itme["maxWave"]}";
+                if (cnt == 2) t3.text = $"3위 {itme["userName"]} : {itme["maxWave"]}";
+
+                cnt++;
+
+                if (cnt == 3) break;
+
+            }
+
+        }
+        catch(System.Exception ex)
+        {
+
+            foreach(var item in arr)
+            {
+
+                Debug.Log(ex.ToString());
+                Debug.Log(item["maxWave"]);
+
+            }
+
+            t1.text = "서버에 데이터 동기화중";
+            t2.text = "잠시후 다시 시도해주세요";
+            t3.text = "";
 
         }
 

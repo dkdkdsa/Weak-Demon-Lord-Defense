@@ -96,7 +96,6 @@ public class AuthManager
         {
 
             await auth.SignInWithEmailAndPasswordAsync(email, password);
-
             var res = await database.GetValueAsync();
 
             var s = res.Children.ToList().Find((x) =>
@@ -131,8 +130,6 @@ public class AuthManager
             comp?.Invoke(false);
 
         }
-
-        ///
 
     }
 
