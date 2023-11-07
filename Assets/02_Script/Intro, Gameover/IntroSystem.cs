@@ -23,6 +23,7 @@ public class IntroSystem : MonoBehaviour
     [Header("Login")]
     [SerializeField] private Transform singUp;
     [SerializeField] private Transform login;
+    [SerializeField] private Transform ranking;
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private GameObject btnss;
 
@@ -105,6 +106,42 @@ public class IntroSystem : MonoBehaviour
         {
 
             singUp.transform.DOLocalMoveY(1100, 0.5f).SetEase(Ease.OutQuad);
+
+        }
+
+    }
+
+    public void RankingPanel(bool open)
+    {
+
+        if (open)
+        {
+
+            ranking.transform.DOLocalMoveY(0, 0.5f).SetEase(Ease.OutQuad);
+
+        }
+        else
+        {
+
+            ranking.transform.DOLocalMoveY(1100, 0.5f).SetEase(Ease.OutQuad);
+
+        }
+
+    }
+
+    public void IntroPanel(bool open)
+    {
+
+        if (open)
+        {
+
+            introPanel.transform.DOLocalMoveY(0, 0.5f).SetEase(Ease.OutQuad);
+
+        }
+        else
+        {
+
+            introPanel.transform.DOLocalMoveY(-1100, 0.5f).SetEase(Ease.OutQuad);
 
         }
 
