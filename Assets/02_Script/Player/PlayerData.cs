@@ -30,7 +30,7 @@ public class PlayerData : MonoBehaviour
 
     public event Action OnValueChanged;
 
-    private void Awake()
+    private void Start()
     {
         OnValueChanged?.Invoke();
     }

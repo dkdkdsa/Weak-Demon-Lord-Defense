@@ -6,12 +6,15 @@ public class EnemyDie : MonoBehaviour
 {
 
     [SerializeField] private EnemyDropTableSO so;
+    [SerializeField] private int rewardMoney;
 
+    private PlayerData playerData;
     private UnitAnimator animator;
 
     private void Awake()
     {
-        
+     
+        playerData = FindObjectOfType<PlayerData>();
         animator = GetComponentInChildren<UnitAnimator>();
         animator.OnDieAnimeEnd += HandleDie;
 
@@ -29,6 +32,7 @@ public class EnemyDie : MonoBehaviour
 
         }
 
+        playerData.Money += rewardMoney;
         WaveManager.instance.spawnList.Remove(gameObject);
 
     }
