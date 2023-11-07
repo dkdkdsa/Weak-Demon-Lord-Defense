@@ -2804,20 +2804,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98d915aa302e5d5418aa89ed38a25eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <moveSpeed>k__BackingField: 3
-  <attackPower>k__BackingField: 10
-  <defenceValue>k__BackingField: 1
-  <attackTime>k__BackingField: 2
-  <skillCoolDown>k__BackingField: 2
-  <maxHP>k__BackingField: 50
+  <moveSpeed>k__BackingField: 2
+  <attackPower>k__BackingField: 40
+  <defenceValue>k__BackingField: 3
+  <attackTime>k__BackingField: 1
+  <skillCoolDown>k__BackingField: 1
+  <maxHP>k__BackingField: 180
   <skill>k__BackingField: {fileID: 11400000, guid: b491cea0b320c8b48ba67aba5d7bdc72, type: 2}
   <targetLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
   <hPBarPrefab>k__BackingField: {fileID: 6521066083289951620, guid: 3037fa8fd8a12d64c8e51d66259b65e1, type: 3}
-  <lvUpValue>k__BackingField: 3
+  <lvUpValue>k__BackingField: 20
   <lvUpCost>k__BackingField: 100
-  <unitName>k__BackingField: "\uC2A4\uCF08\uB808\uD1A4"
+  <unitName>k__BackingField: "\uB2E4\uD06C\uC5D8\uD504"
   <range>k__BackingField: 100
   <attackAbleRange>k__BackingField: 8
   <rootMat>k__BackingField: {fileID: 2100000, guid: 03fe5d371a99e73428354dab54c6571d, type: 2}

@@ -18,11 +18,11 @@ MonoBehaviour:
     unitPrefab: {fileID: 7592162322223821656, guid: 17de3221d28fc5c43a1d7af3f7aac231, type: 3}
     cost: 10
   - key: BlueGoblin
-    iconSprite: {fileID: 21300000, guid: a34e9113d31193c40913a6d480736cbd, type: 3}
+    iconSprite: {fileID: 21300000, guid: 953597daffb0cc64eb57a8abef019a4b, type: 3}
     unitPrefab: {fileID: 5163185580042555868, guid: 4c721119f3211e74a8ad55536db20848, type: 3}
     cost: 30
   - key: RedGoblin
-    iconSprite: {fileID: 21300000, guid: a8063821c6072fb43a03db9b216850c8, type: 3}
+    iconSprite: {fileID: 21300000, guid: c6b9854dcc6bee546a1f5c089c8c301f, type: 3}
     unitPrefab: {fileID: 5908670526803692813, guid: 45cdb874d7be84548985faf45610b03f, type: 3}
     cost: 50
   - key: Skel
@@ -34,10 +34,10 @@ MonoBehaviour:
     unitPrefab: {fileID: 4088196046388273540, guid: 7f171a7693a8b6c48a38e6c9448c8d3b, type: 3}
     cost: 150
   - key: Elf
-    iconSprite: {fileID: 21300000, guid: dd7499253c5475c4681c6927a4707df0, type: 3}
+    iconSprite: {fileID: 21300000, guid: 5c1cb3f311ba333448a0053d605d2852, type: 3}
     unitPrefab: {fileID: 6094499704513340757, guid: b14f8176089f1f14c90f229fbee63a00, type: 3}
-    cost: 200
+    cost: 400
   - key: DarkElf
-    iconSprite: {fileID: 21300000, guid: dd7499253c5475c4681c6927a4707df0, type: 3}
+    iconSprite: {fileID: 21300000, guid: 4853ccb58e8bf8f408ddf8a50fb57300, type: 3}
     unitPrefab: {fileID: 6094499704513340757, guid: f0967965e07e9ab41b17fdcdade06248, type: 3}
-    cost: 250
+    cost: 550
