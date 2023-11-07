@@ -3111,19 +3111,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98d915aa302e5d5418aa89ed38a25eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <moveSpeed>k__BackingField: 3
-  <attackPower>k__BackingField: 10
-  <defenceValue>k__BackingField: 1
-  <attackTime>k__BackingField: 2
-  <skillCoolDown>k__BackingField: 2
-  <maxHP>k__BackingField: 50
+  <moveSpeed>k__BackingField: 2
+  <attackPower>k__BackingField: 35
+  <defenceValue>k__BackingField: 3
+  <attackTime>k__BackingField: 1
+  <skillCoolDown>k__BackingField: 1
+  <maxHP>k__BackingField: 150
   <skill>k__BackingField: {fileID: 11400000, guid: 2f03b783db8c92b43bc7dcb07ace0e40, type: 2}
   <targetLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
   <hPBarPrefab>k__BackingField: {fileID: 6521066083289951620, guid: 3037fa8fd8a12d64c8e51d66259b65e1, type: 3}
-  <lvUpValue>k__BackingField: 3
-  <lvUpCost>k__BackingField: 100
+  <lvUpValue>k__BackingField: 18
+  <lvUpCost>k__BackingField: 90
   <unitName>k__BackingField: "\uC5D8\uD504"
   <range>k__BackingField: 100
   <attackAbleRange>k__BackingField: 8

@@ -2855,8 +2855,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   <hPBarPrefab>k__BackingField: {fileID: 6521066083289951620, guid: 3037fa8fd8a12d64c8e51d66259b65e1, type: 3}
-  <lvUpValue>k__BackingField: 3
-  <lvUpCost>k__BackingField: 100
+  <lvUpValue>k__BackingField: 4
+  <lvUpCost>k__BackingField: 25
   <unitName>k__BackingField: "\uC2A4\uCF08\uB808\uD1A4"
   <range>k__BackingField: 100
   <attackAbleRange>k__BackingField: 8
