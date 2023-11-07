@@ -36,7 +36,7 @@ public class UnitDataController : MonoBehaviour
     protected Dictionary<ItemType, ItemData?> itemContainer = new();
     protected SpriteRenderer head, body, pants1, pants2, weapon;
     protected FeedBackPlayer feedBackPlayer;
-    protected TextMeshPro levelupText;
+    protected TMP_Text levelupText;
 
 
     public event Action OnValueChanged;
@@ -54,8 +54,8 @@ public class UnitDataController : MonoBehaviour
 
         currentHP = maxHP;
         feedBackPlayer = GetComponent<FeedBackPlayer>();
-        levelupText = GetComponentInChildren<TextMeshPro>();
-        levelupText.gameObject.SetActive(false);
+        levelupText = GetComponentInChildren<TMP_Text>();
+        levelupText?.gameObject.SetActive(false);
         animator = transform.Find("Visual/UnitRoot").GetComponent<UnitAnimator>();
         skill = Instantiate(skill);
         hpBar = Instantiate(hPBarPrefab, transform.position + new Vector3(0, 2, 0.3f), Quaternion.Euler(45, 0, 0), transform);
@@ -218,13 +218,18 @@ public class UnitDataController : MonoBehaviour
 
         currentHP = maxHP + extraHP;
 
-        Vector3 settingPos = levelupText.transform.position + new Vector3(0, 1, 0);
-        Vector3 orgPos = levelupText.transform.position;
+        if(levelupText != null)
+        {
 
-        levelupText.transform.position = settingPos;
-        levelupText.gameObject.SetActive(true);
-        levelupText.transform.DOMoveY(orgPos.y, 0.5f).SetEase(Ease.OutBounce).OnComplete(() 
-            => { levelupText.gameObject.SetActive(false); });
+            Vector3 settingPos = levelupText.transform.position + new Vector3(0, 1, 0);
+            Vector3 orgPos = levelupText.transform.position;
+
+            levelupText.transform.position = settingPos;
+            levelupText.gameObject.SetActive(true);
+            levelupText.transform.DOMoveY(orgPos.y, 0.5f).SetEase(Ease.OutBounce).OnComplete(()
+                => { levelupText.gameObject.SetActive(false); });
+
+        }
 
         OnValueChanged?.Invoke();
 
