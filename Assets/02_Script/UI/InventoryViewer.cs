@@ -70,8 +70,12 @@ public class InventoryViewer : MonoBehaviour
         else if(upgradeUI != null)
         {
 
-            upgradeUI.SetSlot(item.Value);
-            inventory.RemoveItem(item.Value);
+            if (upgradeUI.SetSlot(item.Value))
+            {
+
+                inventory.RemoveItem(item.Value);
+
+            }
             return;
 
         }

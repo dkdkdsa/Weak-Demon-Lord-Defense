@@ -171,6 +171,7 @@ public class UIController : MonoBehaviour
     private void HandleWaveStart()
     {
 
+        isControling = true;
         SetHpPanel(false);
         SetProfilePanel(false);
         SetDeckPanel(false);
@@ -180,6 +181,7 @@ public class UIController : MonoBehaviour
     private void HandleWaveEnd()
     {
 
+        isControling = false;
         SetHpPanel(true);
         SetProfilePanel(true);
         SetDeckPanel(true);

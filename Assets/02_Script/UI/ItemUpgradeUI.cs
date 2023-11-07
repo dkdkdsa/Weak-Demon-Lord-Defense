@@ -91,11 +91,19 @@ public class ItemUpgradeUI : MonoBehaviour
 
     }
     
-    public void SetSlot(ItemData item)
+    public bool SetSlot(ItemData item)
     {
 
-        slot.SettingItem(item);
-        SettingText();
+        if(slot.GetItem() == null)
+        {
+
+            slot.SettingItem(item);
+            SettingText();
+            return true;
+
+        }
+
+        return false;
 
     }
 
