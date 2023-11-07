@@ -3213,11 +3213,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <moveSpeed>k__BackingField: 7
-  <attackPower>k__BackingField: 10
+  <attackPower>k__BackingField: 7
   <defenceValue>k__BackingField: 0
   <attackTime>k__BackingField: 1
   <skillCoolDown>k__BackingField: 10
-  <maxHP>k__BackingField: 300
+  <maxHP>k__BackingField: 250
   <skill>k__BackingField: {fileID: 11400000, guid: 4fdd4ae75625b894aa22b0e829a1af55, type: 2}
   <targetLayer>k__BackingField:
     serializedVersion: 2

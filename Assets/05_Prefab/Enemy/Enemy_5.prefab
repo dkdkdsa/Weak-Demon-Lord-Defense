@@ -3096,10 +3096,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <moveSpeed>k__BackingField: 3
-  <attackPower>k__BackingField: 10
+  <attackPower>k__BackingField: 8
   <defenceValue>k__BackingField: 0
   <attackTime>k__BackingField: 3
-  <skillCoolDown>k__BackingField: 3
+  <skillCoolDown>k__BackingField: 4
   <maxHP>k__BackingField: 150
   <skill>k__BackingField: {fileID: 11400000, guid: 2f03b783db8c92b43bc7dcb07ace0e40, type: 2}
   <targetLayer>k__BackingField:

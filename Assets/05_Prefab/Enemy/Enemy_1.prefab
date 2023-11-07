@@ -3045,7 +3045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <moveSpeed>k__BackingField: 3
-  <attackPower>k__BackingField: 3
+  <attackPower>k__BackingField: 2
   <defenceValue>k__BackingField: 0
   <attackTime>k__BackingField: 1
   <skillCoolDown>k__BackingField: 3
