@@ -15,6 +15,7 @@ namespace FD.Dev
         public static void InsertPool(GameObject obj)
         {
 
+            if (obj == null) return;
             FAED_Core.PoolManager.InsertPool(obj);
 
         }

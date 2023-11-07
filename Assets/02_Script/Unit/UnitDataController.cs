@@ -105,13 +105,6 @@ public class UnitDataController : MonoBehaviour
     private void Update()
     {
         
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-
-            TakeDamage(10);
-
-        }
-
     }
 
     private void SettingValue(ItemType type, bool remove = false)
