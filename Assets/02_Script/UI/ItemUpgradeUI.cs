@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ public class ItemUpgradeUI : MonoBehaviour
 {
 
     [SerializeField] private ItemSlot slot;
-    [SerializeField] private TMP_Text lvText, attackText, defText, hpText, costText, nameText;
+    [SerializeField] private TMP_Text lvText, attackText, defText, hpText, costText, nameText, upgradeText;
 
     private PlayerInventory inventory;
     private PlayerData playerData;
@@ -83,6 +84,14 @@ public class ItemUpgradeUI : MonoBehaviour
                 curItem.DoUpgrade();
                 slot.SettingItem(curItem);
                 SettingText();
+
+                Vector3 settingPos = upgradeText.rectTransform.position + new Vector3(0, 100, 0);
+                Vector3 orgPos = upgradeText.rectTransform.position;
+
+                upgradeText.rectTransform.position = settingPos;
+                upgradeText.gameObject.SetActive(true);
+                upgradeText.rectTransform.DOMoveY(orgPos.y, 0.5f).SetEase(Ease.OutBounce).OnComplete(()
+                    => { upgradeText.gameObject.SetActive(false); });
 
             }
 
