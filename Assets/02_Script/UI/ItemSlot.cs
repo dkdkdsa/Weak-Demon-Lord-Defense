@@ -58,12 +58,21 @@ public class ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
     public void OnPointerExit(PointerEventData eventData)
     {
 
+        DataTableShow.Instance.transform.position = new Vector3(3000, 3000);
         OnSlotEnterEvent?.Invoke(currentItem);
 
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+
+        if(currentItem != null)
+        {
+            
+            DataTableShow.Instance.transform.position = eventData.position + new Vector2(0, 100);
+            DataTableShow.Instance.SetText(currentItem.Value);
+
+        }
 
         OnSlotExitEvent?.Invoke(currentItem);
 

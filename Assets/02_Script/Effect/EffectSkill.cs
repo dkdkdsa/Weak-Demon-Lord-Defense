@@ -28,6 +28,16 @@ public class EffectSkill : MonoBehaviour
 
         }, castDelay);
 
+        StartCoroutine(DestroyCo());
+
+    }
+
+    private IEnumerator DestroyCo()
+    {
+
+        yield return new WaitForSeconds(10f);
+        Destroy(gameObject);
+
     }
 
 #if UNITY_EDITOR

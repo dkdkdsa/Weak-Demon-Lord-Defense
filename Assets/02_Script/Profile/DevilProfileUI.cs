@@ -17,7 +17,7 @@ public class DevilProfileUI : MonoBehaviour
     [SerializeField] private Sprite winSprite;
     [SerializeField] private Sprite loseSprite;
 
-    const float profileTime = 2f;
+    const float profileTime = 5f;
     const float textTime = 0.5f;
 
     private void Start()

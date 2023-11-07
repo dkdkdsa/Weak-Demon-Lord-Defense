@@ -63,7 +63,7 @@ public class FeedBackPlayer : MonoBehaviour
         txtObj.transform
             .DOMoveY(txtObj.transform.position.y + 3, 1f)
             .SetEase(Ease.OutQuad)
-            .OnComplete(() => Destroy(txtObj));
+            .OnComplete(() => Destroy(txtObj.gameObject));
 
     }
     private void SetParticle()
