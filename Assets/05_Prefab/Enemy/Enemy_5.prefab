@@ -3163,6 +3163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   so: {fileID: 11400000, guid: eef501756cf987846a71db0ad3ea9202, type: 2}
+  rewardMoney: 50
 --- !u!1 &6825730984356242166
 GameObject:
   m_ObjectHideFlags: 0

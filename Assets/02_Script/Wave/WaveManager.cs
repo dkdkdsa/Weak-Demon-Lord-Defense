@@ -1,5 +1,6 @@
 using DG.Tweening;
 using FD.Dev;
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -39,6 +40,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private TMP_Text waveText;
     [SerializeField] private Slider barTrm;
     [SerializeField] private float barHP = 50;
+    [SerializeField] private int[] waveRewardMoney;
 
     private int turretCnt;
 
@@ -126,10 +128,14 @@ public class WaveManager : MonoBehaviour
     [HideInInspector] public List<GameObject> spawnList = new List<GameObject>();
     public static WaveManager instance;
 
+    private PlayerData playerData;
+
     private void Awake()
     {
 
         instance = this;
+        playerData = FindObjectOfType<PlayerData>();
+
         waveText.text = $"WAVE {addWave}";
         OnWaveEndEvent += WaveEndBool;
 
@@ -165,7 +171,19 @@ public class WaveManager : MonoBehaviour
 
         OnWaveEndEvent?.Invoke();
         OnWaveCompleteEvent?.Invoke();
+        playerData.Money += RewardMoney();
 
+    }
+
+    private int RewardMoney()
+    {
+        if (currentWave >= waveRewardMoney.Length)
+        {
+            int c = (currentWave - waveRewardMoney.Length / 10) + 1;
+            return waveRewardMoney[waveRewardMoney.Length - 1] * c;
+        }
+
+        return waveRewardMoney[currentWave];
     }
 
     private IEnumerator EnemySummonCo(WaveData data)
