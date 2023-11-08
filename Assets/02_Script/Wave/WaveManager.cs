@@ -43,6 +43,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private int[] waveRewardMoney;
 
     private int turretCnt;
+    private float time;
 
     public event Action OnWaveFailureEvent;
     public event Action OnWaveDieEvent;
@@ -82,6 +83,7 @@ public class WaveManager : MonoBehaviour
                         {
 
                             AuthManager.instance.userData.maxWave = addWave;
+                            AuthManager.instance.userData.time = (int)time;
                             AuthManager.instance.Setting();
 
                         }
@@ -143,6 +145,13 @@ public class WaveManager : MonoBehaviour
 
         waveText.text = $"WAVE {addWave}";
         OnWaveEndEvent += WaveEndBool;
+
+    }
+
+    private void Update()
+    {
+
+        time += Time.deltaTime;
 
     }
 

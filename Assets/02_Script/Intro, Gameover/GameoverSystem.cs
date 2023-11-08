@@ -1,16 +1,45 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameoverSystem : MonoBehaviour
 {
     [SerializeField] private RectTransform titleTrs;
     [SerializeField] private RectTransform btnsTrs;
+    [SerializeField] private Image rend;
 
     private void Start()
     {
+
+        StartCoroutine(CO());
+
+    }
+
+    private IEnumerator CO()
+    {
+
+        float per = 0;
+
+        while(per < 1)
+        {
+
+            per += Time.deltaTime;
+            rend.material.SetFloat("_FullGlowDissolveFade", 1 - per);
+            yield return null;
+
+        }
+
+        StartTw();
+
+    }
+
+    private void StartTw()
+    {
+
         SoundManager.Instance.PlaySound("Gameover");
 
         titleTrs.DOMoveY(800, 0.3f).SetEase(Ease.InExpo).OnComplete(() => {
@@ -23,6 +52,7 @@ public class GameoverSystem : MonoBehaviour
         });
 
         btnsTrs.DOMoveY(540, 0.5f).SetEase(Ease.OutBounce);
+
     }
 
     public void NextScene(string name)

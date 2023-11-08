@@ -17,6 +17,7 @@ public class UIController : MonoBehaviour
     private EquipUI equipUI;
     private UnitUpgradeUI unitUpgradeUI;
     private ItemUpgradeUI itemUpgradeUI;
+    private PlayerInventory inv;
 
     public bool isControling { get; private set; }
 
@@ -28,6 +29,7 @@ public class UIController : MonoBehaviour
         inventoryViewer = FindObjectOfType<InventoryViewer>();
         unitUpgradeUI = FindObjectOfType<UnitUpgradeUI>();
         itemUpgradeUI = FindObjectOfType<ItemUpgradeUI>();
+        inv = FindObjectOfType<PlayerInventory>();
 
     }
 
@@ -210,6 +212,7 @@ public class UIController : MonoBehaviour
         if(!isControling) return;
         isControling = false;
 
+        itemUpgradeUI.ChackEnd(inv);
         SetHpPanel(true);
         SetProfilePanel(true);
         SetDeckPanel(true);
