@@ -100,6 +100,20 @@ public class ItemUpgradeUI : MonoBehaviour
 
     }
     
+    public void ChackEnd(PlayerInventory inv)
+    {
+
+        if(slot.GetItem() != null)
+        {
+
+            inv.AddItem(slot.GetItem().Value);
+            slot.SettingItem(null);
+            SettingText();
+
+        }
+
+    }
+
     public bool SetSlot(ItemData item)
     {
 

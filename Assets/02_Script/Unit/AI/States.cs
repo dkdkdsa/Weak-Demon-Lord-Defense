@@ -1,4 +1,5 @@
 using FD.Dev;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -292,11 +293,24 @@ public class MoveState : UnitStateRoot
     public override void Enter()
     {
 
-        if (agent == null) return;
+        try
+        {
 
-        agent.isStopped = false;
+            if (agent == null) return;
 
-        animator.SetIsMove(true);
+            agent.isStopped = false;
+
+            animator.SetIsMove(true);
+
+
+        }
+        catch(Exception ex)
+        {
+
+            Debug.Log(ex);
+
+        }
+
 
     }
 

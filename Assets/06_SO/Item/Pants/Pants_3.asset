@@ -17,5 +17,5 @@ MonoBehaviour:
   defense: 4
   attack: 4
   hp: 40
-  itemName: "\uC9C8\uAE34 \uBC14"
+  itemName: "\uC9C8\uAE34 \uBC14\uC9C0"
   upgradeCost: 40

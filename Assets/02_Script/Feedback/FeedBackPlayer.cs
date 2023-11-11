@@ -36,7 +36,7 @@ public class FeedBackPlayer : MonoBehaviour
     private void CameraShack()
     {
 
-        cls.GenerateImpulse(0.2f);
+        cls.GenerateImpulse(0.1f);
 
     }
 

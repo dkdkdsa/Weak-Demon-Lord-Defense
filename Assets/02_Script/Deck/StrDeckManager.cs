@@ -22,7 +22,7 @@ public class StrDeckManager : MonoBehaviour
         {
 
             var slot = Instantiate(slotPrefab, cardRoot);
-            slot.Setting(deck.key, deck.iconSprite, deckRoot, cardRoot);
+            slot.Setting(deck.key, deck.cost, deck.iconSprite, deckRoot, cardRoot);
 
         }
 
